@@ -7,7 +7,7 @@
 %}
 
 DIGIT [0-9]
-alpha [A-Za-z]
+LETTER [A-Za-z]
 
 %%
 /*** Rules section ***/
