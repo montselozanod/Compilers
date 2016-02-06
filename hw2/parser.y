@@ -64,17 +64,6 @@ Tipo:
   | FLOAT
   ;
 
-Vars:
-  VAR A
-  ;
-
-A:
-  B ':' Tipo ';' D
-  ;
-
-B:
-  IDENTIFIER C;
-
 Factor:
   '(' Expresion ')'
   | Signo VarCte
