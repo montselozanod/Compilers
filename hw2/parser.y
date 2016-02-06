@@ -34,7 +34,20 @@ Programa:
   | PROGRAM IDENTIFIER ';' Bloque
   ;
 
+Bloque:
+  '{' Es '}'
+  ;
 
+Es:
+  Estatuto Es
+  | vacio
+  ;
+
+Estatuto:
+  Asignacion
+  | Condicion
+  | Escritura
+  ;
 
 
 VarCte:
