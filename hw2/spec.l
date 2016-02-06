@@ -12,9 +12,10 @@ LETTER [A-Za-z]
 %%
 /*** Rules section ***/
 
-{DIGIT}+\.{DIGIT}+  { cout << "FLOAT:" << yytext << endl; }
-{DIGIT}+  { cout << "INTEGER:" << yytext << endl; }
-{LETTER}({LETTER}|{DIGIT})*
+{DIGIT}+\.{DIGIT}+  { cout << "FLOAT: " << yytext << endl; }
+{DIGIT}+  { cout << "INTEGER: " << yytext << endl; }
+{LETTER}({LETTER}|{DIGIT})* { cout << "IDENTIFIER: " << yytext << endl; }
+\"(\\.|[^"])*\" { cout << "STRING: " << yytext << endl; }
 
 %%
 
