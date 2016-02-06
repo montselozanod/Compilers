@@ -12,7 +12,7 @@ using namespace std;
   char *sval;
 }
 
-//tipo de token provene de union
+//tipo de token proviene de union
 %token <ival> INUM
 %token <fval> FNUM
 %token <sval> CSTRING
