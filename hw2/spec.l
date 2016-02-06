@@ -17,6 +17,7 @@ LETTER [A-Za-z]
 "float" {std::cout << "FLOAT"<< std::endl;}
 "if"  {std::cout << "IF"<< std::endl;}
 "else"  {std::cout << "ELSE"<< std::endl;}
+"print" {std::cout << "PRINT"<< std::endl;}
 {DIGIT}+\.{DIGIT}+  { std::cout << "FLOAT: " << yytext << std::endl; }
 {DIGIT}+  { std::cout << "INTEGER: " << yytext << std::endl; }
 {LETTER}({LETTER}|{DIGIT})* { std::cout << "IDENTIFIER: " << yytext << std::endl; }
