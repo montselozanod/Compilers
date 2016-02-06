@@ -12,6 +12,12 @@ LETTER [A-Za-z]
 %%
 /*** Rules section ***/
 
+"program" {return PROGRAM;}
+"var" {return VAR;}
+"int" {return INT;}
+"float" {return FLOAT;}
+"if"  {return IF;}
+"else"  {return ELSE;}
 {DIGIT}+\.{DIGIT}+  { cout << "FLOAT: " << yytext << endl; }
 {DIGIT}+  { cout << "INTEGER: " << yytext << endl; }
 {LETTER}({LETTER}|{DIGIT})* { cout << "IDENTIFIER: " << yytext << endl; }
