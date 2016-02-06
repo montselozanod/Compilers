@@ -10,7 +10,6 @@ DIGIT [0-9]
 LETTER [A-Za-z]
 
 %%
-/* Rules section */
 
 "program" {return PROGRAM;}
 "var" {return VAR;}
@@ -25,7 +24,6 @@ LETTER [A-Za-z]
 
 %%
 
-/* Code section */
 int main()
 {
 	printf("%02d: ", lines);
