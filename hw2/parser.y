@@ -84,7 +84,15 @@ Exp:
   | Exp Signo Termino
   ;
 
+Termino:
+  Factor
+  | Termino Fact Factor
+  ;
 
+Fact:
+  '*'
+  | '/'
+  ;
 
 
 VarCte:
