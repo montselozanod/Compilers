@@ -94,6 +94,14 @@ Fact:
   | '/'
   ;
 
+Condicion:
+  Ifin ';'
+  | Ifin ELSE Bloque ';'
+  ;
+
+Ifin:
+    IF '(' Expresion ')' Bloque
+    ;
 
 VarCte:
   IDENTIFIER
