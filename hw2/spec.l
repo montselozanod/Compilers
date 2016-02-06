@@ -3,7 +3,7 @@
   Montserrat Lozano Dieck A01088686
 */
 
-
+#include <iostream>
 %}
 
 DIGIT [0-9]
@@ -18,7 +18,7 @@ LETTER [A-Za-z]
 "if"  {std::cout << "IF"<< std::endl;}
 "else"  {std::cout << "ELSE"<< std::endl;}
 {DIGIT}+\.{DIGIT}+  { std::cout << "FLOAT: " << yytext << std::endl; }
-{DIGIT}+  { std::cout << "INTEGER: " << yytext << endl; }
+{DIGIT}+  { std::cout << "INTEGER: " << yytext << std::endl; }
 {LETTER}({LETTER}|{DIGIT})* { std::cout << "IDENTIFIER: " << yytext << std::endl; }
 \"(\\.|[^"])*\" { std::cout << "STRING: " << yytext << std::endl; }
 
@@ -26,7 +26,6 @@ LETTER [A-Za-z]
 
 int main()
 {
-	printf("%02d: ", lines);
 	yylex();
 
 }
