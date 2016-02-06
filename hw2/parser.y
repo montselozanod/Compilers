@@ -105,7 +105,13 @@ Ifin:
     ;
 
 Escritura:
-  PRINT '(' PrintOp
+  PRINT '(' PrintSeq ')' ';'
+  ;
+
+PrintSeq:
+  PrintOp
+  | PrintSeq ',' PrintOp
+  ;
 
 PrintOp:
   Expresion
