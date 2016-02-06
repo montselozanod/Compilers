@@ -79,6 +79,13 @@ Op:
   | '<>'
   ;
 
+Exp:
+  Termino
+  | Exp Signo Termino
+  ;
+
+
+
 
 VarCte:
   IDENTIFIER
