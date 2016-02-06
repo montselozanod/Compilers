@@ -11,16 +11,16 @@ LETTER [A-Za-z]
 
 %%
 
-"program" {return PROGRAM;}
-"var" {return VAR;}
-"int" {return INT;}
-"float" {return FLOAT;}
-"if"  {return IF;}
-"else"  {return ELSE;}
-{DIGIT}+\.{DIGIT}+  { cout << "FLOAT: " << yytext << endl; }
-{DIGIT}+  { cout << "INTEGER: " << yytext << endl; }
-{LETTER}({LETTER}|{DIGIT})* { cout << "IDENTIFIER: " << yytext << endl; }
-\"(\\.|[^"])*\" { cout << "STRING: " << yytext << endl; }
+"program" {std::cout << "PROGRAM"<< std::endl;}
+"var" {std::cout << "VAR"<< std::endl;}
+"int" {std::cout << "INT"<< std::endl;}
+"float" {std::cout << "FLOAT"<< std::endl;}
+"if"  {std::cout << "IF"<< std::endl;}
+"else"  {std::cout << "ELSE"<< std::endl;}
+{DIGIT}+\.{DIGIT}+  { std::cout << "FLOAT: " << yytext << std::endl; }
+{DIGIT}+  { std::cout << "INTEGER: " << yytext << endl; }
+{LETTER}({LETTER}|{DIGIT})* { std::cout << "IDENTIFIER: " << yytext << std::endl; }
+\"(\\.|[^"])*\" { std::cout << "STRING: " << yytext << std::endl; }
 
 %%
 
