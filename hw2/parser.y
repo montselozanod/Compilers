@@ -2,9 +2,6 @@
 #include <cstdio>
 #include <iostream>
 using namespace std;
-
-
-
 %}
 %union{
   int ival;
