@@ -105,7 +105,12 @@ Ifin:
     ;
 
 Escritura:
+  PRINT '(' PrintOp
 
+PrintOp:
+  Expresion
+  | CSTRING
+  ;
 
 VarCte:
   IDENTIFIER
