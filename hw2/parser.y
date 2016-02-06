@@ -24,13 +24,33 @@ using namespace std;
 %token IF
 %token ELSE
 
+%start Programa
 %%
 //grammar
-var_cte:
-
+VarCte:
+  IDENTIFIER
   | INUM
   | FNUM
   ;
+
+Tipo:
+  INT
+  | FLOAT
+  ;
+
+Vars:
+  VAR A
+  ;
+
+A:
+  B ':' Tipo ';' D
+  ;
+
+B:
+  IDENTIFIER C;
+
+
+
 %%
 
 int main()
