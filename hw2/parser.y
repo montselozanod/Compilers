@@ -36,8 +36,8 @@ Bloque:
   ;
 
 Es:
-  Estatuto Es
-  | vacio
+  Estatuto
+  | Es Estatuto
   ;
 
 Estatuto:
