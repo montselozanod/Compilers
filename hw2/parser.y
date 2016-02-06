@@ -20,6 +20,7 @@ using namespace std;
 %token FLOAT
 %token IF
 %token ELSE
+%token PRINT
 
 %start Programa
 
@@ -102,6 +103,9 @@ Condicion:
 Ifin:
     IF '(' Expresion ')' Bloque
     ;
+
+Escritura:
+
 
 VarCte:
   IDENTIFIER
