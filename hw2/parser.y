@@ -40,6 +40,24 @@ Es:
   | Es Estatuto
   ;
 
+Vars:
+  VAR Dec
+  ;
+
+Dec:
+  Def
+  | Dec Def
+  ;
+
+Def:
+  Ident ':' Tipo ';'
+  ;
+
+Ident:
+  IDENTIFIER
+  | Ident ',' IDENTIFIER
+  ;
+
 Estatuto:
   Asignacion
   | Condicion
@@ -50,7 +68,16 @@ Asignacion:
   IDENTIFIER '=' Expresion ';'
   ;
 
+Expresion:
+  Exp
+  | Exp Op Exp
+  ;
 
+Op:
+  '>'
+  | '<'
+  | '<>'
+  ;
 
 
 VarCte:
