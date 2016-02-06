@@ -49,6 +49,12 @@ Estatuto:
   | Escritura
   ;
 
+Asignacion:
+  IDENTIFIER '=' Expresion ';'
+  ;
+
+
+
 
 VarCte:
   IDENTIFIER
