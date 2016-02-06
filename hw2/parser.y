@@ -25,8 +25,18 @@ using namespace std;
 %token ELSE
 
 %start Programa
+
 %%
 //grammar
+
+Programa:
+  PROGRAM IDENTIFIER ';' Vars Bloque
+  | PROGRAM IDENTIFIER ';' Bloque
+  ;
+
+
+
+
 VarCte:
   IDENTIFIER
   | INUM
