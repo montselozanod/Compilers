@@ -78,6 +78,17 @@ A:
 B:
   IDENTIFIER C;
 
+Factor:
+  '(' Expresion ')'
+  | Signo VarCte
+  | VarCte
+  ;
+
+Signo:
+  '+'
+  | '-'
+  ;
+
 
 
 %%
