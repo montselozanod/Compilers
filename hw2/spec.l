@@ -37,9 +37,3 @@ LETTER [A-Za-z]
 	return CSTRING; }
 
 %%
-
-int main()
-{
-	yylex();
-
-}
