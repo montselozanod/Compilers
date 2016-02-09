@@ -148,5 +148,5 @@ Signo:
 
 int main()
 {
-
+   yyparse();
 }
