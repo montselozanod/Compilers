@@ -28,8 +28,12 @@ using namespace std;
 //grammar
 
 Programa:
-  PROGRAM IDENTIFIER ';' Vars Bloque
-  | PROGRAM IDENTIFIER ';' Bloque
+  PROGRAM IDENTIFIER ';' Programa2
+  ;
+
+Programa2:
+  Vars Bloque
+  | Bloque
   ;
 
 Bloque:
