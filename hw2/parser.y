@@ -28,6 +28,7 @@ void yyerror(const char *s);
 %token IF
 %token ELSE
 %token PRINT
+%token NOTEQUAL
 
 %start Programa
 
@@ -88,7 +89,7 @@ Expresion:
 Op:
   '>'
   | '<'
-  | '<>'
+  | NOTEQUAL
   ;
 
 Exp:
@@ -156,7 +157,7 @@ Signo:
 int main(int, char**)
 {
   // open a file handle to a particular file:
-	FILE *myfile = fopen("a.snazzle.file", "r");
+	FILE *myfile = fopen("prueba.o", "r");
 	// make sure it is valid:
 	if (!myfile) {
 		cout << "I can't open a.snazzle.file!" << endl;

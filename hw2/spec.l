@@ -13,6 +13,8 @@ LETTER [A-Za-z]
 
 %%
 
+"<>"  {yylval.sval = strdup(yytext);
+	return NOTEQUAL;}
 "program" {yylval.sval = strdup(yytext);
 	return PROGRAM;}
 "var" {yylval.sval = strdup(yytext);
