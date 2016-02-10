@@ -1833,9 +1833,3 @@ void yyfree (void * ptr )
 
 
 
-int main()
-{
-	yylex();
-
-}
-

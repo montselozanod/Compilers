@@ -1,0 +1,6 @@
+program hello;
+
+var main: int;
+{
+	montse = 10;
+}
