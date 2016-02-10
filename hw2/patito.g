@@ -24,9 +24,7 @@ asignacion
 escritura
 	:	'print' '(' stmt ')' ';';
 
-stmt	:	strgstmt stmt2*;
-
-stmt2	:	',' stmt;
+stmt	:	strgstmt (',' strgstmt)*;
 
 strgstmt:	STRING | expresion;
 
@@ -38,20 +36,18 @@ opexp	: '>' exp
 	| '<>' exp
 	;
 
-exp	:	termino (opsum exp)*;
+exp	:	termino (opsum termino)*;
 
 factor	:	 '(' expresion ')'
 	|	opsum? varcte;
-
-termino	:	factor (opmul termino)*;
+	
+termino	:	factor (opmul factor)*;
 
 vars	:	'var' decl+;
 
 decl	:	variabs ':' tipo ';';
 
-variabs	:	ID more*;
-
-more	:	',' variabs;
+variabs	:	ID (',' ID)*;
 
 varcte	:	ID|INT|FLOAT;
 
