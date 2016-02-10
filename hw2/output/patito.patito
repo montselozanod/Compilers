@@ -1,0 +1,7 @@
+program hola;
+
+var main: int
+{
+  hello = 50;
+  chabuz = "chab";
+}
