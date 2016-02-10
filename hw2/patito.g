@@ -2,6 +2,40 @@ grammar patito;
 
 parse	:	tipo EOF;
 
+escritura
+	:	'print' '(' stmt ')' ';';
+
+stmt	:	strgstmt stmt2*;
+
+stmt2	:	',' stmt;
+
+strgstmt:	STRING | expresion;
+
+expresion
+	: exp
+	| exp '>' exp
+	| exp '<' exp
+	| exp '<>' exp
+	;
+
+exp	:	termino exp2*;
+
+exp2	:	 opsum exp;
+
+factor	:	 '(' expresion ')'
+	|	opsum? varcte;
+
+termino	:	factor fact2*;
+
+fact2	:	opmul termino;
+
+vars	:	'var' decl+;
+
+decl	:	variabs ':' tipo ';';
+
+variabs	:	ID more*;
+
+more	:	',' variabs;
 
 varcte	:	ID|INT|FLOAT;
 
