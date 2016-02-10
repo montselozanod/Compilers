@@ -1,5 +1,9 @@
 grammar patito;
 
+options {
+  language=Python;
+}
+
 parse	:	programa EOF;
 
 programa:	'program' 'id' ';' vars? bloque;
