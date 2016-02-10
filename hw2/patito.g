@@ -1,6 +1,15 @@
-grammar parser;
+grammar patito;
 
-TIPO :'int'|'float';
+parse	:	tipo EOF;
+
+
+varcte	:	ID|INT|FLOAT;
+
+tipo	:	'int'|'float';
+
+opsum	:	'+'|'-';
+
+opmul	:	'*'|'/';
 
 ID  :	('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'0'..'9'|'_')*
     ;
@@ -9,25 +18,24 @@ INT :	'0'..'9'+
     ;
 
 FLOAT
-    :   ('0'..'9')+ '.' ('0'..'9')+
+    :   ('0'..'9')+ '.' ('0'..'9')* EXPONENT?
+    |   '.' ('0'..'9')+ EXPONENT?
+    |   ('0'..'9')+ EXPONENT
     ;
-    
-STRING
-    :  '"' ( ESC_SEQ | ~('\\'|'"') )* '"'
-    ;
-    
-OPSUM	: '+' | '-'
-	;
 
-OPMUL	: '*'| '/'
-	;
-	
 WS  :   ( ' '
         | '\t'
         | '\r'
         | '\n'
         ) {$channel=HIDDEN;}
     ;
+
+STRING
+    :  '"' ( ESC_SEQ | ~('\\'|'"') )* '"'
+    ;
+
+fragment
+EXPONENT : ('e'|'E') ('+'|'-')? ('0'..'9')+ ;
 
 fragment
 HEX_DIGIT : ('0'..'9'|'a'..'f'|'A'..'F') ;
