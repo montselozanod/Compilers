@@ -2,6 +2,20 @@ grammar patito;
 
 parse	:	tipo EOF;
 
+
+bloque	:	'{' estatuto* '}';
+
+estatuto:	asignacion
+	|	escritura
+	|condicion;
+
+condicion
+	:	'if' '(' expresion ')' bloque condelse? ';';
+
+condelse:	'else' bloque;
+
+asignacion
+	:	ID '=' expresion ';';
 escritura
 	:	'print' '(' stmt ')' ';';
 
@@ -12,22 +26,19 @@ stmt2	:	',' stmt;
 strgstmt:	STRING | expresion;
 
 expresion
-	: exp
-	| exp '>' exp
-	| exp '<' exp
-	| exp '<>' exp
+	: exp opexp;
+
+opexp	: '>' exp
+	| '<' exp
+	| '<>' exp
 	;
 
-exp	:	termino exp2*;
-
-exp2	:	 opsum exp;
+exp	:	termino (opsum exp)*;
 
 factor	:	 '(' expresion ')'
 	|	opsum? varcte;
 
-termino	:	factor fact2*;
-
-fact2	:	opmul termino;
+termino	:	factor (opmul termino)*;
 
 vars	:	'var' decl+;
 

@@ -36,7 +36,7 @@ void yyerror(const char *s);
 //grammar
 
 Programa:
-  PROGRAM IDENTIFIER ';' Programa2
+  PROGRAM IDENTIFIER ';' Programa2 {cout<<"Termino parsing de archivo"<<endl;}
   ;
 
 Programa2:
