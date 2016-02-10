@@ -1,7 +1,8 @@
 grammar patito;
 
-parse	:	tipo EOF;
+parse	:	programa EOF;
 
+programa:	'program' 'id' ';' vars? bloque;
 
 bloque	:	'{' estatuto* '}';
 
