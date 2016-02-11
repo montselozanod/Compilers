@@ -4,7 +4,7 @@ options {
   language=Python;
 }
 
-parse	:	programa EOF;
+parse	:	programa EOF; 
 
 programa:	'program' 'id' ';' vars? bloque;
 
