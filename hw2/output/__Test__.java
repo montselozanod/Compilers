@@ -11,7 +11,7 @@ public class __Test__ {
 
         patitoParser g = new patitoParser(tokens, 49100, null);
         try {
-            g.parse();
+            g.programa();
         } catch (RecognitionException e) {
             e.printStackTrace();
         }

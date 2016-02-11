@@ -1,4 +1,4 @@
-// $ANTLR 3.5.1 /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g 2016-02-10 12:53:33
+// $ANTLR 3.5.1 /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g 2016-02-10 20:33:58
 
 import org.antlr.runtime.*;
 import java.util.Stack;
@@ -13,7 +13,8 @@ public class patitoParser extends DebugParser {
 		"<invalid>", "<EOR>", "<DOWN>", "<UP>", "ESC_SEQ", "EXPONENT", "FLOAT", 
 		"HEX_DIGIT", "ID", "INT", "OCTAL_ESC", "STRING", "UNICODE_ESC", "WS", 
 		"'('", "')'", "'*'", "'+'", "','", "'-'", "'/'", "':'", "';'", "'<'", 
-		"'<>'", "'>'", "'float'", "'int'", "'print'", "'var'"
+		"'<>'", "'='", "'>'", "'else'", "'float'", "'if'", "'int'", "'print'", 
+		"'program'", "'var'", "'{'", "'}'"
 	};
 	public static final int EOF=-1;
 	public static final int T__14=14;
@@ -32,6 +33,12 @@ public class patitoParser extends DebugParser {
 	public static final int T__27=27;
 	public static final int T__28=28;
 	public static final int T__29=29;
+	public static final int T__30=30;
+	public static final int T__31=31;
+	public static final int T__32=32;
+	public static final int T__33=33;
+	public static final int T__34=34;
+	public static final int T__35=35;
 	public static final int ESC_SEQ=4;
 	public static final int EXPONENT=5;
 	public static final int FLOAT=6;
@@ -52,14 +59,16 @@ public class patitoParser extends DebugParser {
 
 
 	public static final String[] ruleNames = new String[] {
-		"invalidRule", "opmul", "exp", "factor", "varcte", "strgstmt", "expresion", 
-		"termino", "decl", "vars", "variabs", "tipo", "stmt", "stmt2", "opexp", 
-		"opsum", "escritura", "parse", "more"
+		"invalidRule", "asignacion", "decl", "opexp", "escritura", "varcte", "start", 
+		"condicion", "tipo", "bloque", "exp", "stmt", "opsum", "estatuto", "variabs", 
+		"strgstmt", "termino", "opmul", "condelse", "programa", "vars", "expresion", 
+		"factor"
 	};
 
 	public static final boolean[] decisionCanBacktrack = new boolean[] {
 		false, // invalid decision
-		false, false, false, false, false, false, false, false, false
+		false, false, false, false, false, false, false, false, false, false, 
+		    false, false, false, false
 	};
 
  
@@ -98,26 +107,26 @@ public class patitoParser extends DebugParser {
 
 
 
-	// $ANTLR start "parse"
-	// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:3:1: parse : tipo EOF ;
-	public final void parse() throws RecognitionException {
-		try { dbg.enterRule(getGrammarFileName(), "parse");
+	// $ANTLR start "start"
+	// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:3:1: start : programa EOF ;
+	public final void start() throws RecognitionException {
+		try { dbg.enterRule(getGrammarFileName(), "start");
 		if ( getRuleLevel()==0 ) {dbg.commence();}
 		incRuleLevel();
 		dbg.location(3, 0);
 
 		try {
-			// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:3:7: ( tipo EOF )
+			// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:3:7: ( programa EOF )
 			dbg.enterAlt(1);
 
-			// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:3:9: tipo EOF
+			// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:3:9: programa EOF
 			{
 			dbg.location(3,9);
-			pushFollow(FOLLOW_tipo_in_parse10);
-			tipo();
+			pushFollow(FOLLOW_programa_in_start10);
+			programa();
 			state._fsp--;
-			dbg.location(3,14);
-			match(input,EOF,FOLLOW_EOF_in_parse12); 
+			dbg.location(3,18);
+			match(input,EOF,FOLLOW_EOF_in_start12); 
 			}
 
 		}
@@ -128,121 +137,146 @@ public class patitoParser extends DebugParser {
 		finally {
 			// do for sure before leaving
 		}
-		dbg.location(3, 16);
+		dbg.location(3, 20);
 
 		}
 		finally {
-			dbg.exitRule(getGrammarFileName(), "parse");
+			dbg.exitRule(getGrammarFileName(), "start");
 			decRuleLevel();
 			if ( getRuleLevel()==0 ) {dbg.terminate();}
 		}
 
 	}
-	// $ANTLR end "parse"
+	// $ANTLR end "start"
 
 
 
-	// $ANTLR start "escritura"
-	// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:6:1: escritura : 'print' '(' stmt ')' ';' ;
-	public final void escritura() throws RecognitionException {
-		try { dbg.enterRule(getGrammarFileName(), "escritura");
+	// $ANTLR start "programa"
+	// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:5:1: programa : 'program' ID ';' ( vars )? bloque ;
+	public final void programa() throws RecognitionException {
+		try { dbg.enterRule(getGrammarFileName(), "programa");
 		if ( getRuleLevel()==0 ) {dbg.commence();}
 		incRuleLevel();
-		dbg.location(6, 0);
+		dbg.location(5, 0);
 
 		try {
-			// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:7:2: ( 'print' '(' stmt ')' ';' )
+			// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:5:9: ( 'program' ID ';' ( vars )? bloque )
 			dbg.enterAlt(1);
 
-			// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:7:4: 'print' '(' stmt ')' ';'
+			// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:5:11: 'program' ID ';' ( vars )? bloque
 			{
-			dbg.location(7,4);
-			match(input,28,FOLLOW_28_in_escritura22); dbg.location(7,12);
-			match(input,14,FOLLOW_14_in_escritura24); dbg.location(7,16);
-			pushFollow(FOLLOW_stmt_in_escritura26);
-			stmt();
-			state._fsp--;
-			dbg.location(7,21);
-			match(input,15,FOLLOW_15_in_escritura28); dbg.location(7,25);
-			match(input,22,FOLLOW_22_in_escritura30); 
-			}
-
-		}
-		catch (RecognitionException re) {
-			reportError(re);
-			recover(input,re);
-		}
-		finally {
-			// do for sure before leaving
-		}
-		dbg.location(7, 27);
-
-		}
-		finally {
-			dbg.exitRule(getGrammarFileName(), "escritura");
-			decRuleLevel();
-			if ( getRuleLevel()==0 ) {dbg.terminate();}
-		}
-
-	}
-	// $ANTLR end "escritura"
-
-
-
-	// $ANTLR start "stmt"
-	// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:9:1: stmt : strgstmt ( stmt2 )* ;
-	public final void stmt() throws RecognitionException {
-		try { dbg.enterRule(getGrammarFileName(), "stmt");
-		if ( getRuleLevel()==0 ) {dbg.commence();}
-		incRuleLevel();
-		dbg.location(9, 0);
-
-		try {
-			// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:9:6: ( strgstmt ( stmt2 )* )
-			dbg.enterAlt(1);
-
-			// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:9:8: strgstmt ( stmt2 )*
-			{
-			dbg.location(9,8);
-			pushFollow(FOLLOW_strgstmt_in_stmt38);
-			strgstmt();
-			state._fsp--;
-			dbg.location(9,17);
-			// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:9:17: ( stmt2 )*
+			dbg.location(5,11);
+			match(input,32,FOLLOW_32_in_programa19); dbg.location(5,21);
+			match(input,ID,FOLLOW_ID_in_programa21); dbg.location(5,24);
+			match(input,22,FOLLOW_22_in_programa23); dbg.location(5,28);
+			// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:5:28: ( vars )?
+			int alt1=2;
 			try { dbg.enterSubRule(1);
+			try { dbg.enterDecision(1, decisionCanBacktrack[1]);
 
-			loop1:
-			while (true) {
-				int alt1=2;
-				try { dbg.enterDecision(1, decisionCanBacktrack[1]);
+			int LA1_0 = input.LA(1);
+			if ( (LA1_0==33) ) {
+				alt1=1;
+			}
+			} finally {dbg.exitDecision(1);}
 
-				int LA1_0 = input.LA(1);
-				if ( (LA1_0==18) ) {
-					alt1=1;
-				}
-
-				} finally {dbg.exitDecision(1);}
-
-				switch (alt1) {
+			switch (alt1) {
 				case 1 :
 					dbg.enterAlt(1);
 
-					// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:9:17: stmt2
+					// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:5:28: vars
 					{
-					dbg.location(9,17);
-					pushFollow(FOLLOW_stmt2_in_stmt40);
-					stmt2();
+					dbg.location(5,28);
+					pushFollow(FOLLOW_vars_in_programa25);
+					vars();
+					state._fsp--;
+
+					}
+					break;
+
+			}
+			} finally {dbg.exitSubRule(1);}
+			dbg.location(5,34);
+			pushFollow(FOLLOW_bloque_in_programa28);
+			bloque();
+			state._fsp--;
+
+			}
+
+		}
+		catch (RecognitionException re) {
+			reportError(re);
+			recover(input,re);
+		}
+		finally {
+			// do for sure before leaving
+		}
+		dbg.location(5, 39);
+
+		}
+		finally {
+			dbg.exitRule(getGrammarFileName(), "programa");
+			decRuleLevel();
+			if ( getRuleLevel()==0 ) {dbg.terminate();}
+		}
+
+	}
+	// $ANTLR end "programa"
+
+
+
+	// $ANTLR start "bloque"
+	// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:7:1: bloque : '{' ( estatuto )* '}' ;
+	public final void bloque() throws RecognitionException {
+		try { dbg.enterRule(getGrammarFileName(), "bloque");
+		if ( getRuleLevel()==0 ) {dbg.commence();}
+		incRuleLevel();
+		dbg.location(7, 0);
+
+		try {
+			// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:7:8: ( '{' ( estatuto )* '}' )
+			dbg.enterAlt(1);
+
+			// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:7:10: '{' ( estatuto )* '}'
+			{
+			dbg.location(7,10);
+			match(input,34,FOLLOW_34_in_bloque36); dbg.location(7,14);
+			// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:7:14: ( estatuto )*
+			try { dbg.enterSubRule(2);
+
+			loop2:
+			while (true) {
+				int alt2=2;
+				try { dbg.enterDecision(2, decisionCanBacktrack[2]);
+
+				int LA2_0 = input.LA(1);
+				if ( (LA2_0==ID||LA2_0==29||LA2_0==31) ) {
+					alt2=1;
+				}
+
+				} finally {dbg.exitDecision(2);}
+
+				switch (alt2) {
+				case 1 :
+					dbg.enterAlt(1);
+
+					// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:7:14: estatuto
+					{
+					dbg.location(7,14);
+					pushFollow(FOLLOW_estatuto_in_bloque38);
+					estatuto();
 					state._fsp--;
 
 					}
 					break;
 
 				default :
-					break loop1;
+					break loop2;
 				}
 			}
-			} finally {dbg.exitSubRule(1);}
-
+			} finally {dbg.exitSubRule(2);}
+			dbg.location(7,24);
+			match(input,35,FOLLOW_35_in_bloque41); 
 			}
 
 		}
@@ -253,212 +287,45 @@ public class patitoParser extends DebugParser {
 		finally {
 			// do for sure before leaving
 		}
-		dbg.location(9, 22);
+		dbg.location(7, 26);
 
 		}
 		finally {
-			dbg.exitRule(getGrammarFileName(), "stmt");
+			dbg.exitRule(getGrammarFileName(), "bloque");
 			decRuleLevel();
 			if ( getRuleLevel()==0 ) {dbg.terminate();}
 		}
 
 	}
-	// $ANTLR end "stmt"
+	// $ANTLR end "bloque"
 
 
 
-	// $ANTLR start "stmt2"
-	// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:11:1: stmt2 : ',' stmt ;
-	public final void stmt2() throws RecognitionException {
-		try { dbg.enterRule(getGrammarFileName(), "stmt2");
+	// $ANTLR start "estatuto"
+	// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:9:1: estatuto : ( asignacion | escritura | condicion );
+	public final void estatuto() throws RecognitionException {
+		try { dbg.enterRule(getGrammarFileName(), "estatuto");
 		if ( getRuleLevel()==0 ) {dbg.commence();}
 		incRuleLevel();
-		dbg.location(11, 0);
+		dbg.location(9, 0);
 
 		try {
-			// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:11:7: ( ',' stmt )
-			dbg.enterAlt(1);
-
-			// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:11:9: ',' stmt
-			{
-			dbg.location(11,9);
-			match(input,18,FOLLOW_18_in_stmt249); dbg.location(11,13);
-			pushFollow(FOLLOW_stmt_in_stmt251);
-			stmt();
-			state._fsp--;
-
-			}
-
-		}
-		catch (RecognitionException re) {
-			reportError(re);
-			recover(input,re);
-		}
-		finally {
-			// do for sure before leaving
-		}
-		dbg.location(11, 16);
-
-		}
-		finally {
-			dbg.exitRule(getGrammarFileName(), "stmt2");
-			decRuleLevel();
-			if ( getRuleLevel()==0 ) {dbg.terminate();}
-		}
-
-	}
-	// $ANTLR end "stmt2"
-
-
-
-	// $ANTLR start "strgstmt"
-	// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:13:1: strgstmt : ( STRING | expresion );
-	public final void strgstmt() throws RecognitionException {
-		try { dbg.enterRule(getGrammarFileName(), "strgstmt");
-		if ( getRuleLevel()==0 ) {dbg.commence();}
-		incRuleLevel();
-		dbg.location(13, 0);
-
-		try {
-			// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:13:9: ( STRING | expresion )
-			int alt2=2;
-			try { dbg.enterDecision(2, decisionCanBacktrack[2]);
-
-			int LA2_0 = input.LA(1);
-			if ( (LA2_0==STRING) ) {
-				alt2=1;
-			}
-			else if ( (LA2_0==FLOAT||(LA2_0 >= ID && LA2_0 <= INT)||LA2_0==14||LA2_0==17||LA2_0==19) ) {
-				alt2=2;
-			}
-
-			else {
-				NoViableAltException nvae =
-					new NoViableAltException("", 2, 0, input);
-				dbg.recognitionException(nvae);
-				throw nvae;
-			}
-
-			} finally {dbg.exitDecision(2);}
-
-			switch (alt2) {
-				case 1 :
-					dbg.enterAlt(1);
-
-					// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:13:11: STRING
-					{
-					dbg.location(13,11);
-					match(input,STRING,FOLLOW_STRING_in_strgstmt58); 
-					}
-					break;
-				case 2 :
-					dbg.enterAlt(2);
-
-					// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:13:20: expresion
-					{
-					dbg.location(13,20);
-					pushFollow(FOLLOW_expresion_in_strgstmt62);
-					expresion();
-					state._fsp--;
-
-					}
-					break;
-
-			}
-		}
-		catch (RecognitionException re) {
-			reportError(re);
-			recover(input,re);
-		}
-		finally {
-			// do for sure before leaving
-		}
-		dbg.location(13, 28);
-
-		}
-		finally {
-			dbg.exitRule(getGrammarFileName(), "strgstmt");
-			decRuleLevel();
-			if ( getRuleLevel()==0 ) {dbg.terminate();}
-		}
-
-	}
-	// $ANTLR end "strgstmt"
-
-
-
-	// $ANTLR start "expresion"
-	// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:15:1: expresion : exp opexp ;
-	public final void expresion() throws RecognitionException {
-		try { dbg.enterRule(getGrammarFileName(), "expresion");
-		if ( getRuleLevel()==0 ) {dbg.commence();}
-		incRuleLevel();
-		dbg.location(15, 0);
-
-		try {
-			// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:16:2: ( exp opexp )
-			dbg.enterAlt(1);
-
-			// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:16:4: exp opexp
-			{
-			dbg.location(16,4);
-			pushFollow(FOLLOW_exp_in_expresion71);
-			exp();
-			state._fsp--;
-			dbg.location(16,8);
-			pushFollow(FOLLOW_opexp_in_expresion73);
-			opexp();
-			state._fsp--;
-
-			}
-
-		}
-		catch (RecognitionException re) {
-			reportError(re);
-			recover(input,re);
-		}
-		finally {
-			// do for sure before leaving
-		}
-		dbg.location(16, 12);
-
-		}
-		finally {
-			dbg.exitRule(getGrammarFileName(), "expresion");
-			decRuleLevel();
-			if ( getRuleLevel()==0 ) {dbg.terminate();}
-		}
-
-	}
-	// $ANTLR end "expresion"
-
-
-
-	// $ANTLR start "opexp"
-	// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:18:1: opexp : ( '>' exp | '<' exp | '<>' exp );
-	public final void opexp() throws RecognitionException {
-		try { dbg.enterRule(getGrammarFileName(), "opexp");
-		if ( getRuleLevel()==0 ) {dbg.commence();}
-		incRuleLevel();
-		dbg.location(18, 0);
-
-		try {
-			// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:18:7: ( '>' exp | '<' exp | '<>' exp )
+			// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:9:9: ( asignacion | escritura | condicion )
 			int alt3=3;
 			try { dbg.enterDecision(3, decisionCanBacktrack[3]);
 
 			switch ( input.LA(1) ) {
-			case 25:
+			case ID:
 				{
 				alt3=1;
 				}
 				break;
-			case 23:
+			case 31:
 				{
 				alt3=2;
 				}
 				break;
-			case 24:
+			case 29:
 				{
 				alt3=3;
 				}
@@ -475,12 +342,11 @@ public class patitoParser extends DebugParser {
 				case 1 :
 					dbg.enterAlt(1);
 
-					// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:18:9: '>' exp
+					// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:9:11: asignacion
 					{
-					dbg.location(18,9);
-					match(input,25,FOLLOW_25_in_opexp81); dbg.location(18,13);
-					pushFollow(FOLLOW_exp_in_opexp83);
-					exp();
+					dbg.location(9,11);
+					pushFollow(FOLLOW_asignacion_in_estatuto48);
+					asignacion();
 					state._fsp--;
 
 					}
@@ -488,12 +354,11 @@ public class patitoParser extends DebugParser {
 				case 2 :
 					dbg.enterAlt(2);
 
-					// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:19:4: '<' exp
+					// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:10:4: escritura
 					{
-					dbg.location(19,4);
-					match(input,23,FOLLOW_23_in_opexp88); dbg.location(19,8);
-					pushFollow(FOLLOW_exp_in_opexp90);
-					exp();
+					dbg.location(10,4);
+					pushFollow(FOLLOW_escritura_in_estatuto53);
+					escritura();
 					state._fsp--;
 
 					}
@@ -501,12 +366,11 @@ public class patitoParser extends DebugParser {
 				case 3 :
 					dbg.enterAlt(3);
 
-					// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:20:4: '<>' exp
+					// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:11:3: condicion
 					{
-					dbg.location(20,4);
-					match(input,24,FOLLOW_24_in_opexp95); dbg.location(20,9);
-					pushFollow(FOLLOW_exp_in_opexp97);
-					exp();
+					dbg.location(11,3);
+					pushFollow(FOLLOW_condicion_in_estatuto57);
+					condicion();
 					state._fsp--;
 
 					}
@@ -521,77 +385,290 @@ public class patitoParser extends DebugParser {
 		finally {
 			// do for sure before leaving
 		}
-		dbg.location(21, 1);
+		dbg.location(11, 11);
 
 		}
 		finally {
-			dbg.exitRule(getGrammarFileName(), "opexp");
+			dbg.exitRule(getGrammarFileName(), "estatuto");
 			decRuleLevel();
 			if ( getRuleLevel()==0 ) {dbg.terminate();}
 		}
 
 	}
-	// $ANTLR end "opexp"
+	// $ANTLR end "estatuto"
 
 
 
-	// $ANTLR start "exp"
-	// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:23:1: exp : termino ( opsum exp )* ;
-	public final void exp() throws RecognitionException {
-		try { dbg.enterRule(getGrammarFileName(), "exp");
+	// $ANTLR start "condicion"
+	// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:13:1: condicion : 'if' '(' expresion ')' bloque ( condelse )? ';' ;
+	public final void condicion() throws RecognitionException {
+		try { dbg.enterRule(getGrammarFileName(), "condicion");
+		if ( getRuleLevel()==0 ) {dbg.commence();}
+		incRuleLevel();
+		dbg.location(13, 0);
+
+		try {
+			// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:14:2: ( 'if' '(' expresion ')' bloque ( condelse )? ';' )
+			dbg.enterAlt(1);
+
+			// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:14:4: 'if' '(' expresion ')' bloque ( condelse )? ';'
+			{
+			dbg.location(14,4);
+			match(input,29,FOLLOW_29_in_condicion66); dbg.location(14,9);
+			match(input,14,FOLLOW_14_in_condicion68); dbg.location(14,13);
+			pushFollow(FOLLOW_expresion_in_condicion70);
+			expresion();
+			state._fsp--;
+			dbg.location(14,23);
+			match(input,15,FOLLOW_15_in_condicion72); dbg.location(14,27);
+			pushFollow(FOLLOW_bloque_in_condicion74);
+			bloque();
+			state._fsp--;
+			dbg.location(14,34);
+			// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:14:34: ( condelse )?
+			int alt4=2;
+			try { dbg.enterSubRule(4);
+			try { dbg.enterDecision(4, decisionCanBacktrack[4]);
+
+			int LA4_0 = input.LA(1);
+			if ( (LA4_0==27) ) {
+				alt4=1;
+			}
+			} finally {dbg.exitDecision(4);}
+
+			switch (alt4) {
+				case 1 :
+					dbg.enterAlt(1);
+
+					// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:14:34: condelse
+					{
+					dbg.location(14,34);
+					pushFollow(FOLLOW_condelse_in_condicion76);
+					condelse();
+					state._fsp--;
+
+					}
+					break;
+
+			}
+			} finally {dbg.exitSubRule(4);}
+			dbg.location(14,44);
+			match(input,22,FOLLOW_22_in_condicion79); 
+			}
+
+		}
+		catch (RecognitionException re) {
+			reportError(re);
+			recover(input,re);
+		}
+		finally {
+			// do for sure before leaving
+		}
+		dbg.location(14, 46);
+
+		}
+		finally {
+			dbg.exitRule(getGrammarFileName(), "condicion");
+			decRuleLevel();
+			if ( getRuleLevel()==0 ) {dbg.terminate();}
+		}
+
+	}
+	// $ANTLR end "condicion"
+
+
+
+	// $ANTLR start "condelse"
+	// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:16:1: condelse : 'else' bloque ;
+	public final void condelse() throws RecognitionException {
+		try { dbg.enterRule(getGrammarFileName(), "condelse");
+		if ( getRuleLevel()==0 ) {dbg.commence();}
+		incRuleLevel();
+		dbg.location(16, 0);
+
+		try {
+			// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:16:9: ( 'else' bloque )
+			dbg.enterAlt(1);
+
+			// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:16:11: 'else' bloque
+			{
+			dbg.location(16,11);
+			match(input,27,FOLLOW_27_in_condelse86); dbg.location(16,18);
+			pushFollow(FOLLOW_bloque_in_condelse88);
+			bloque();
+			state._fsp--;
+
+			}
+
+		}
+		catch (RecognitionException re) {
+			reportError(re);
+			recover(input,re);
+		}
+		finally {
+			// do for sure before leaving
+		}
+		dbg.location(16, 23);
+
+		}
+		finally {
+			dbg.exitRule(getGrammarFileName(), "condelse");
+			decRuleLevel();
+			if ( getRuleLevel()==0 ) {dbg.terminate();}
+		}
+
+	}
+	// $ANTLR end "condelse"
+
+
+
+	// $ANTLR start "asignacion"
+	// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:18:1: asignacion : ID '=' expresion ';' ;
+	public final void asignacion() throws RecognitionException {
+		try { dbg.enterRule(getGrammarFileName(), "asignacion");
+		if ( getRuleLevel()==0 ) {dbg.commence();}
+		incRuleLevel();
+		dbg.location(18, 0);
+
+		try {
+			// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:19:2: ( ID '=' expresion ';' )
+			dbg.enterAlt(1);
+
+			// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:19:4: ID '=' expresion ';'
+			{
+			dbg.location(19,4);
+			match(input,ID,FOLLOW_ID_in_asignacion97); dbg.location(19,7);
+			match(input,25,FOLLOW_25_in_asignacion99); dbg.location(19,11);
+			pushFollow(FOLLOW_expresion_in_asignacion101);
+			expresion();
+			state._fsp--;
+			dbg.location(19,21);
+			match(input,22,FOLLOW_22_in_asignacion103); 
+			}
+
+		}
+		catch (RecognitionException re) {
+			reportError(re);
+			recover(input,re);
+		}
+		finally {
+			// do for sure before leaving
+		}
+		dbg.location(19, 23);
+
+		}
+		finally {
+			dbg.exitRule(getGrammarFileName(), "asignacion");
+			decRuleLevel();
+			if ( getRuleLevel()==0 ) {dbg.terminate();}
+		}
+
+	}
+	// $ANTLR end "asignacion"
+
+
+
+	// $ANTLR start "escritura"
+	// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:20:1: escritura : 'print' '(' stmt ')' ';' ;
+	public final void escritura() throws RecognitionException {
+		try { dbg.enterRule(getGrammarFileName(), "escritura");
+		if ( getRuleLevel()==0 ) {dbg.commence();}
+		incRuleLevel();
+		dbg.location(20, 0);
+
+		try {
+			// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:21:2: ( 'print' '(' stmt ')' ';' )
+			dbg.enterAlt(1);
+
+			// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:21:4: 'print' '(' stmt ')' ';'
+			{
+			dbg.location(21,4);
+			match(input,31,FOLLOW_31_in_escritura111); dbg.location(21,12);
+			match(input,14,FOLLOW_14_in_escritura113); dbg.location(21,16);
+			pushFollow(FOLLOW_stmt_in_escritura115);
+			stmt();
+			state._fsp--;
+			dbg.location(21,21);
+			match(input,15,FOLLOW_15_in_escritura117); dbg.location(21,25);
+			match(input,22,FOLLOW_22_in_escritura119); 
+			}
+
+		}
+		catch (RecognitionException re) {
+			reportError(re);
+			recover(input,re);
+		}
+		finally {
+			// do for sure before leaving
+		}
+		dbg.location(21, 27);
+
+		}
+		finally {
+			dbg.exitRule(getGrammarFileName(), "escritura");
+			decRuleLevel();
+			if ( getRuleLevel()==0 ) {dbg.terminate();}
+		}
+
+	}
+	// $ANTLR end "escritura"
+
+
+
+	// $ANTLR start "stmt"
+	// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:23:1: stmt : strgstmt ( ',' strgstmt )* ;
+	public final void stmt() throws RecognitionException {
+		try { dbg.enterRule(getGrammarFileName(), "stmt");
 		if ( getRuleLevel()==0 ) {dbg.commence();}
 		incRuleLevel();
 		dbg.location(23, 0);
 
 		try {
-			// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:23:5: ( termino ( opsum exp )* )
+			// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:23:6: ( strgstmt ( ',' strgstmt )* )
 			dbg.enterAlt(1);
 
-			// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:23:7: termino ( opsum exp )*
+			// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:23:8: strgstmt ( ',' strgstmt )*
 			{
-			dbg.location(23,7);
-			pushFollow(FOLLOW_termino_in_exp107);
-			termino();
+			dbg.location(23,8);
+			pushFollow(FOLLOW_strgstmt_in_stmt127);
+			strgstmt();
 			state._fsp--;
-			dbg.location(23,15);
-			// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:23:15: ( opsum exp )*
-			try { dbg.enterSubRule(4);
+			dbg.location(23,17);
+			// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:23:17: ( ',' strgstmt )*
+			try { dbg.enterSubRule(5);
 
-			loop4:
+			loop5:
 			while (true) {
-				int alt4=2;
-				try { dbg.enterDecision(4, decisionCanBacktrack[4]);
+				int alt5=2;
+				try { dbg.enterDecision(5, decisionCanBacktrack[5]);
 
-				int LA4_0 = input.LA(1);
-				if ( (LA4_0==17||LA4_0==19) ) {
-					alt4=1;
+				int LA5_0 = input.LA(1);
+				if ( (LA5_0==18) ) {
+					alt5=1;
 				}
 
-				} finally {dbg.exitDecision(4);}
+				} finally {dbg.exitDecision(5);}
 
-				switch (alt4) {
+				switch (alt5) {
 				case 1 :
 					dbg.enterAlt(1);
 
-					// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:23:16: opsum exp
+					// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:23:18: ',' strgstmt
 					{
-					dbg.location(23,16);
-					pushFollow(FOLLOW_opsum_in_exp110);
-					opsum();
-					state._fsp--;
-					dbg.location(23,22);
-					pushFollow(FOLLOW_exp_in_exp112);
-					exp();
+					dbg.location(23,18);
+					match(input,18,FOLLOW_18_in_stmt130); dbg.location(23,22);
+					pushFollow(FOLLOW_strgstmt_in_stmt132);
+					strgstmt();
 					state._fsp--;
 
 					}
 					break;
 
 				default :
-					break loop4;
+					break loop5;
 				}
 			}
-			} finally {dbg.exitSubRule(4);}
+			} finally {dbg.exitSubRule(5);}
 
 			}
 
@@ -603,38 +680,38 @@ public class patitoParser extends DebugParser {
 		finally {
 			// do for sure before leaving
 		}
-		dbg.location(23, 26);
+		dbg.location(23, 31);
 
 		}
 		finally {
-			dbg.exitRule(getGrammarFileName(), "exp");
+			dbg.exitRule(getGrammarFileName(), "stmt");
 			decRuleLevel();
 			if ( getRuleLevel()==0 ) {dbg.terminate();}
 		}
 
 	}
-	// $ANTLR end "exp"
+	// $ANTLR end "stmt"
 
 
 
-	// $ANTLR start "factor"
-	// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:25:1: factor : ( '(' expresion ')' | ( opsum )? varcte );
-	public final void factor() throws RecognitionException {
-		try { dbg.enterRule(getGrammarFileName(), "factor");
+	// $ANTLR start "strgstmt"
+	// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:25:1: strgstmt : ( STRING | expresion );
+	public final void strgstmt() throws RecognitionException {
+		try { dbg.enterRule(getGrammarFileName(), "strgstmt");
 		if ( getRuleLevel()==0 ) {dbg.commence();}
 		incRuleLevel();
 		dbg.location(25, 0);
 
 		try {
-			// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:25:8: ( '(' expresion ')' | ( opsum )? varcte )
+			// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:25:9: ( STRING | expresion )
 			int alt6=2;
 			try { dbg.enterDecision(6, decisionCanBacktrack[6]);
 
 			int LA6_0 = input.LA(1);
-			if ( (LA6_0==14) ) {
+			if ( (LA6_0==STRING) ) {
 				alt6=1;
 			}
-			else if ( (LA6_0==FLOAT||(LA6_0 >= ID && LA6_0 <= INT)||LA6_0==17||LA6_0==19) ) {
+			else if ( (LA6_0==FLOAT||(LA6_0 >= ID && LA6_0 <= INT)||LA6_0==14||LA6_0==17||LA6_0==19) ) {
 				alt6=2;
 			}
 
@@ -651,53 +728,20 @@ public class patitoParser extends DebugParser {
 				case 1 :
 					dbg.enterAlt(1);
 
-					// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:25:11: '(' expresion ')'
+					// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:25:11: STRING
 					{
 					dbg.location(25,11);
-					match(input,14,FOLLOW_14_in_factor123); dbg.location(25,15);
-					pushFollow(FOLLOW_expresion_in_factor125);
-					expresion();
-					state._fsp--;
-					dbg.location(25,25);
-					match(input,15,FOLLOW_15_in_factor127); 
+					match(input,STRING,FOLLOW_STRING_in_strgstmt141); 
 					}
 					break;
 				case 2 :
 					dbg.enterAlt(2);
 
-					// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:26:4: ( opsum )? varcte
+					// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:25:20: expresion
 					{
-					dbg.location(26,4);
-					// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:26:4: ( opsum )?
-					int alt5=2;
-					try { dbg.enterSubRule(5);
-					try { dbg.enterDecision(5, decisionCanBacktrack[5]);
-
-					int LA5_0 = input.LA(1);
-					if ( (LA5_0==17||LA5_0==19) ) {
-						alt5=1;
-					}
-					} finally {dbg.exitDecision(5);}
-
-					switch (alt5) {
-						case 1 :
-							dbg.enterAlt(1);
-
-							// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:26:4: opsum
-							{
-							dbg.location(26,4);
-							pushFollow(FOLLOW_opsum_in_factor132);
-							opsum();
-							state._fsp--;
-
-							}
-							break;
-
-					}
-					} finally {dbg.exitSubRule(5);}
-					dbg.location(26,11);
-					pushFollow(FOLLOW_varcte_in_factor135);
-					varcte();
+					dbg.location(25,20);
+					pushFollow(FOLLOW_expresion_in_strgstmt145);
+					expresion();
 					state._fsp--;
 
 					}
@@ -712,75 +756,64 @@ public class patitoParser extends DebugParser {
 		finally {
 			// do for sure before leaving
 		}
-		dbg.location(26, 16);
+		dbg.location(25, 28);
 
 		}
 		finally {
-			dbg.exitRule(getGrammarFileName(), "factor");
+			dbg.exitRule(getGrammarFileName(), "strgstmt");
 			decRuleLevel();
 			if ( getRuleLevel()==0 ) {dbg.terminate();}
 		}
 
 	}
-	// $ANTLR end "factor"
+	// $ANTLR end "strgstmt"
 
 
 
-	// $ANTLR start "termino"
-	// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:28:1: termino : factor ( opmul termino )* ;
-	public final void termino() throws RecognitionException {
-		try { dbg.enterRule(getGrammarFileName(), "termino");
+	// $ANTLR start "expresion"
+	// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:27:1: expresion : exp ( opexp )? ;
+	public final void expresion() throws RecognitionException {
+		try { dbg.enterRule(getGrammarFileName(), "expresion");
 		if ( getRuleLevel()==0 ) {dbg.commence();}
 		incRuleLevel();
-		dbg.location(28, 0);
+		dbg.location(27, 0);
 
 		try {
-			// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:28:9: ( factor ( opmul termino )* )
+			// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:28:2: ( exp ( opexp )? )
 			dbg.enterAlt(1);
 
-			// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:28:11: factor ( opmul termino )*
+			// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:28:4: exp ( opexp )?
 			{
-			dbg.location(28,11);
-			pushFollow(FOLLOW_factor_in_termino143);
-			factor();
+			dbg.location(28,4);
+			pushFollow(FOLLOW_exp_in_expresion154);
+			exp();
 			state._fsp--;
-			dbg.location(28,18);
-			// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:28:18: ( opmul termino )*
+			dbg.location(28,8);
+			// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:28:8: ( opexp )?
+			int alt7=2;
 			try { dbg.enterSubRule(7);
+			try { dbg.enterDecision(7, decisionCanBacktrack[7]);
 
-			loop7:
-			while (true) {
-				int alt7=2;
-				try { dbg.enterDecision(7, decisionCanBacktrack[7]);
+			int LA7_0 = input.LA(1);
+			if ( ((LA7_0 >= 23 && LA7_0 <= 24)||LA7_0==26) ) {
+				alt7=1;
+			}
+			} finally {dbg.exitDecision(7);}
 
-				int LA7_0 = input.LA(1);
-				if ( (LA7_0==16||LA7_0==20) ) {
-					alt7=1;
-				}
-
-				} finally {dbg.exitDecision(7);}
-
-				switch (alt7) {
+			switch (alt7) {
 				case 1 :
 					dbg.enterAlt(1);
 
-					// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:28:19: opmul termino
+					// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:28:8: opexp
 					{
-					dbg.location(28,19);
-					pushFollow(FOLLOW_opmul_in_termino146);
-					opmul();
-					state._fsp--;
-					dbg.location(28,25);
-					pushFollow(FOLLOW_termino_in_termino148);
-					termino();
+					dbg.location(28,8);
+					pushFollow(FOLLOW_opexp_in_expresion156);
+					opexp();
 					state._fsp--;
 
 					}
 					break;
 
-				default :
-					break loop7;
-				}
 			}
 			} finally {dbg.exitSubRule(7);}
 
@@ -794,79 +827,99 @@ public class patitoParser extends DebugParser {
 		finally {
 			// do for sure before leaving
 		}
-		dbg.location(28, 33);
+		dbg.location(28, 13);
 
 		}
 		finally {
-			dbg.exitRule(getGrammarFileName(), "termino");
+			dbg.exitRule(getGrammarFileName(), "expresion");
 			decRuleLevel();
 			if ( getRuleLevel()==0 ) {dbg.terminate();}
 		}
 
 	}
-	// $ANTLR end "termino"
+	// $ANTLR end "expresion"
 
 
 
-	// $ANTLR start "vars"
-	// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:30:1: vars : 'var' ( decl )+ ;
-	public final void vars() throws RecognitionException {
-		try { dbg.enterRule(getGrammarFileName(), "vars");
+	// $ANTLR start "opexp"
+	// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:30:1: opexp : ( '>' exp | '<' exp | '<>' exp );
+	public final void opexp() throws RecognitionException {
+		try { dbg.enterRule(getGrammarFileName(), "opexp");
 		if ( getRuleLevel()==0 ) {dbg.commence();}
 		incRuleLevel();
 		dbg.location(30, 0);
 
 		try {
-			// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:30:6: ( 'var' ( decl )+ )
-			dbg.enterAlt(1);
+			// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:30:7: ( '>' exp | '<' exp | '<>' exp )
+			int alt8=3;
+			try { dbg.enterDecision(8, decisionCanBacktrack[8]);
 
-			// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:30:8: 'var' ( decl )+
-			{
-			dbg.location(30,8);
-			match(input,29,FOLLOW_29_in_vars158); dbg.location(30,14);
-			// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:30:14: ( decl )+
-			int cnt8=0;
-			try { dbg.enterSubRule(8);
-
-			loop8:
-			while (true) {
-				int alt8=2;
-				try { dbg.enterDecision(8, decisionCanBacktrack[8]);
-
-				int LA8_0 = input.LA(1);
-				if ( (LA8_0==ID) ) {
-					alt8=1;
+			switch ( input.LA(1) ) {
+			case 26:
+				{
+				alt8=1;
 				}
+				break;
+			case 23:
+				{
+				alt8=2;
+				}
+				break;
+			case 24:
+				{
+				alt8=3;
+				}
+				break;
+			default:
+				NoViableAltException nvae =
+					new NoViableAltException("", 8, 0, input);
+				dbg.recognitionException(nvae);
+				throw nvae;
+			}
+			} finally {dbg.exitDecision(8);}
 
-				} finally {dbg.exitDecision(8);}
-
-				switch (alt8) {
+			switch (alt8) {
 				case 1 :
 					dbg.enterAlt(1);
 
-					// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:30:14: decl
+					// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:30:9: '>' exp
 					{
-					dbg.location(30,14);
-					pushFollow(FOLLOW_decl_in_vars160);
-					decl();
+					dbg.location(30,9);
+					match(input,26,FOLLOW_26_in_opexp165); dbg.location(30,13);
+					pushFollow(FOLLOW_exp_in_opexp167);
+					exp();
+					state._fsp--;
+
+					}
+					break;
+				case 2 :
+					dbg.enterAlt(2);
+
+					// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:31:4: '<' exp
+					{
+					dbg.location(31,4);
+					match(input,23,FOLLOW_23_in_opexp172); dbg.location(31,8);
+					pushFollow(FOLLOW_exp_in_opexp174);
+					exp();
+					state._fsp--;
+
+					}
+					break;
+				case 3 :
+					dbg.enterAlt(3);
+
+					// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:32:4: '<>' exp
+					{
+					dbg.location(32,4);
+					match(input,24,FOLLOW_24_in_opexp179); dbg.location(32,9);
+					pushFollow(FOLLOW_exp_in_opexp181);
+					exp();
 					state._fsp--;
 
 					}
 					break;
 
-				default :
-					if ( cnt8 >= 1 ) break loop8;
-					EarlyExitException eee = new EarlyExitException(8, input);
-					dbg.recognitionException(eee);
-
-					throw eee;
-				}
-				cnt8++;
 			}
-			} finally {dbg.exitSubRule(8);}
-
-			}
-
 		}
 		catch (RecognitionException re) {
 			reportError(re);
@@ -875,86 +928,40 @@ public class patitoParser extends DebugParser {
 		finally {
 			// do for sure before leaving
 		}
-		dbg.location(30, 18);
+		dbg.location(33, 1);
 
 		}
 		finally {
-			dbg.exitRule(getGrammarFileName(), "vars");
+			dbg.exitRule(getGrammarFileName(), "opexp");
 			decRuleLevel();
 			if ( getRuleLevel()==0 ) {dbg.terminate();}
 		}
 
 	}
-	// $ANTLR end "vars"
+	// $ANTLR end "opexp"
 
 
 
-	// $ANTLR start "decl"
-	// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:32:1: decl : variabs ':' tipo ';' ;
-	public final void decl() throws RecognitionException {
-		try { dbg.enterRule(getGrammarFileName(), "decl");
+	// $ANTLR start "exp"
+	// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:35:1: exp : termino ( opsum termino )* ;
+	public final void exp() throws RecognitionException {
+		try { dbg.enterRule(getGrammarFileName(), "exp");
 		if ( getRuleLevel()==0 ) {dbg.commence();}
 		incRuleLevel();
-		dbg.location(32, 0);
+		dbg.location(35, 0);
 
 		try {
-			// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:32:6: ( variabs ':' tipo ';' )
+			// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:35:5: ( termino ( opsum termino )* )
 			dbg.enterAlt(1);
 
-			// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:32:8: variabs ':' tipo ';'
+			// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:35:7: termino ( opsum termino )*
 			{
-			dbg.location(32,8);
-			pushFollow(FOLLOW_variabs_in_decl169);
-			variabs();
+			dbg.location(35,7);
+			pushFollow(FOLLOW_termino_in_exp191);
+			termino();
 			state._fsp--;
-			dbg.location(32,16);
-			match(input,21,FOLLOW_21_in_decl171); dbg.location(32,20);
-			pushFollow(FOLLOW_tipo_in_decl173);
-			tipo();
-			state._fsp--;
-			dbg.location(32,25);
-			match(input,22,FOLLOW_22_in_decl175); 
-			}
-
-		}
-		catch (RecognitionException re) {
-			reportError(re);
-			recover(input,re);
-		}
-		finally {
-			// do for sure before leaving
-		}
-		dbg.location(32, 27);
-
-		}
-		finally {
-			dbg.exitRule(getGrammarFileName(), "decl");
-			decRuleLevel();
-			if ( getRuleLevel()==0 ) {dbg.terminate();}
-		}
-
-	}
-	// $ANTLR end "decl"
-
-
-
-	// $ANTLR start "variabs"
-	// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:34:1: variabs : ID ( more )* ;
-	public final void variabs() throws RecognitionException {
-		try { dbg.enterRule(getGrammarFileName(), "variabs");
-		if ( getRuleLevel()==0 ) {dbg.commence();}
-		incRuleLevel();
-		dbg.location(34, 0);
-
-		try {
-			// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:34:9: ( ID ( more )* )
-			dbg.enterAlt(1);
-
-			// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:34:11: ID ( more )*
-			{
-			dbg.location(34,11);
-			match(input,ID,FOLLOW_ID_in_variabs183); dbg.location(34,14);
-			// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:34:14: ( more )*
+			dbg.location(35,15);
+			// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:35:15: ( opsum termino )*
 			try { dbg.enterSubRule(9);
 
 			loop9:
@@ -963,7 +970,7 @@ public class patitoParser extends DebugParser {
 				try { dbg.enterDecision(9, decisionCanBacktrack[9]);
 
 				int LA9_0 = input.LA(1);
-				if ( (LA9_0==18) ) {
+				if ( (LA9_0==17||LA9_0==19) ) {
 					alt9=1;
 				}
 
@@ -973,11 +980,15 @@ public class patitoParser extends DebugParser {
 				case 1 :
 					dbg.enterAlt(1);
 
-					// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:34:14: more
+					// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:35:16: opsum termino
 					{
-					dbg.location(34,14);
-					pushFollow(FOLLOW_more_in_variabs185);
-					more();
+					dbg.location(35,16);
+					pushFollow(FOLLOW_opsum_in_exp194);
+					opsum();
+					state._fsp--;
+					dbg.location(35,22);
+					pushFollow(FOLLOW_termino_in_exp196);
+					termino();
 					state._fsp--;
 
 					}
@@ -999,7 +1010,401 @@ public class patitoParser extends DebugParser {
 		finally {
 			// do for sure before leaving
 		}
-		dbg.location(34, 18);
+		dbg.location(35, 30);
+
+		}
+		finally {
+			dbg.exitRule(getGrammarFileName(), "exp");
+			decRuleLevel();
+			if ( getRuleLevel()==0 ) {dbg.terminate();}
+		}
+
+	}
+	// $ANTLR end "exp"
+
+
+
+	// $ANTLR start "factor"
+	// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:37:1: factor : ( '(' expresion ')' | ( opsum )? varcte );
+	public final void factor() throws RecognitionException {
+		try { dbg.enterRule(getGrammarFileName(), "factor");
+		if ( getRuleLevel()==0 ) {dbg.commence();}
+		incRuleLevel();
+		dbg.location(37, 0);
+
+		try {
+			// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:37:8: ( '(' expresion ')' | ( opsum )? varcte )
+			int alt11=2;
+			try { dbg.enterDecision(11, decisionCanBacktrack[11]);
+
+			int LA11_0 = input.LA(1);
+			if ( (LA11_0==14) ) {
+				alt11=1;
+			}
+			else if ( (LA11_0==FLOAT||(LA11_0 >= ID && LA11_0 <= INT)||LA11_0==17||LA11_0==19) ) {
+				alt11=2;
+			}
+
+			else {
+				NoViableAltException nvae =
+					new NoViableAltException("", 11, 0, input);
+				dbg.recognitionException(nvae);
+				throw nvae;
+			}
+
+			} finally {dbg.exitDecision(11);}
+
+			switch (alt11) {
+				case 1 :
+					dbg.enterAlt(1);
+
+					// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:37:11: '(' expresion ')'
+					{
+					dbg.location(37,11);
+					match(input,14,FOLLOW_14_in_factor207); dbg.location(37,15);
+					pushFollow(FOLLOW_expresion_in_factor209);
+					expresion();
+					state._fsp--;
+					dbg.location(37,25);
+					match(input,15,FOLLOW_15_in_factor211); 
+					}
+					break;
+				case 2 :
+					dbg.enterAlt(2);
+
+					// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:38:4: ( opsum )? varcte
+					{
+					dbg.location(38,4);
+					// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:38:4: ( opsum )?
+					int alt10=2;
+					try { dbg.enterSubRule(10);
+					try { dbg.enterDecision(10, decisionCanBacktrack[10]);
+
+					int LA10_0 = input.LA(1);
+					if ( (LA10_0==17||LA10_0==19) ) {
+						alt10=1;
+					}
+					} finally {dbg.exitDecision(10);}
+
+					switch (alt10) {
+						case 1 :
+							dbg.enterAlt(1);
+
+							// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:38:4: opsum
+							{
+							dbg.location(38,4);
+							pushFollow(FOLLOW_opsum_in_factor216);
+							opsum();
+							state._fsp--;
+
+							}
+							break;
+
+					}
+					} finally {dbg.exitSubRule(10);}
+					dbg.location(38,11);
+					pushFollow(FOLLOW_varcte_in_factor219);
+					varcte();
+					state._fsp--;
+
+					}
+					break;
+
+			}
+		}
+		catch (RecognitionException re) {
+			reportError(re);
+			recover(input,re);
+		}
+		finally {
+			// do for sure before leaving
+		}
+		dbg.location(38, 16);
+
+		}
+		finally {
+			dbg.exitRule(getGrammarFileName(), "factor");
+			decRuleLevel();
+			if ( getRuleLevel()==0 ) {dbg.terminate();}
+		}
+
+	}
+	// $ANTLR end "factor"
+
+
+
+	// $ANTLR start "termino"
+	// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:40:1: termino : factor ( opmul factor )* ;
+	public final void termino() throws RecognitionException {
+		try { dbg.enterRule(getGrammarFileName(), "termino");
+		if ( getRuleLevel()==0 ) {dbg.commence();}
+		incRuleLevel();
+		dbg.location(40, 0);
+
+		try {
+			// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:40:9: ( factor ( opmul factor )* )
+			dbg.enterAlt(1);
+
+			// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:40:11: factor ( opmul factor )*
+			{
+			dbg.location(40,11);
+			pushFollow(FOLLOW_factor_in_termino228);
+			factor();
+			state._fsp--;
+			dbg.location(40,18);
+			// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:40:18: ( opmul factor )*
+			try { dbg.enterSubRule(12);
+
+			loop12:
+			while (true) {
+				int alt12=2;
+				try { dbg.enterDecision(12, decisionCanBacktrack[12]);
+
+				int LA12_0 = input.LA(1);
+				if ( (LA12_0==16||LA12_0==20) ) {
+					alt12=1;
+				}
+
+				} finally {dbg.exitDecision(12);}
+
+				switch (alt12) {
+				case 1 :
+					dbg.enterAlt(1);
+
+					// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:40:19: opmul factor
+					{
+					dbg.location(40,19);
+					pushFollow(FOLLOW_opmul_in_termino231);
+					opmul();
+					state._fsp--;
+					dbg.location(40,25);
+					pushFollow(FOLLOW_factor_in_termino233);
+					factor();
+					state._fsp--;
+
+					}
+					break;
+
+				default :
+					break loop12;
+				}
+			}
+			} finally {dbg.exitSubRule(12);}
+
+			}
+
+		}
+		catch (RecognitionException re) {
+			reportError(re);
+			recover(input,re);
+		}
+		finally {
+			// do for sure before leaving
+		}
+		dbg.location(40, 32);
+
+		}
+		finally {
+			dbg.exitRule(getGrammarFileName(), "termino");
+			decRuleLevel();
+			if ( getRuleLevel()==0 ) {dbg.terminate();}
+		}
+
+	}
+	// $ANTLR end "termino"
+
+
+
+	// $ANTLR start "vars"
+	// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:42:1: vars : 'var' ( decl )+ ;
+	public final void vars() throws RecognitionException {
+		try { dbg.enterRule(getGrammarFileName(), "vars");
+		if ( getRuleLevel()==0 ) {dbg.commence();}
+		incRuleLevel();
+		dbg.location(42, 0);
+
+		try {
+			// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:42:6: ( 'var' ( decl )+ )
+			dbg.enterAlt(1);
+
+			// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:42:8: 'var' ( decl )+
+			{
+			dbg.location(42,8);
+			match(input,33,FOLLOW_33_in_vars243); dbg.location(42,14);
+			// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:42:14: ( decl )+
+			int cnt13=0;
+			try { dbg.enterSubRule(13);
+
+			loop13:
+			while (true) {
+				int alt13=2;
+				try { dbg.enterDecision(13, decisionCanBacktrack[13]);
+
+				int LA13_0 = input.LA(1);
+				if ( (LA13_0==ID) ) {
+					alt13=1;
+				}
+
+				} finally {dbg.exitDecision(13);}
+
+				switch (alt13) {
+				case 1 :
+					dbg.enterAlt(1);
+
+					// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:42:14: decl
+					{
+					dbg.location(42,14);
+					pushFollow(FOLLOW_decl_in_vars245);
+					decl();
+					state._fsp--;
+
+					}
+					break;
+
+				default :
+					if ( cnt13 >= 1 ) break loop13;
+					EarlyExitException eee = new EarlyExitException(13, input);
+					dbg.recognitionException(eee);
+
+					throw eee;
+				}
+				cnt13++;
+			}
+			} finally {dbg.exitSubRule(13);}
+
+			}
+
+		}
+		catch (RecognitionException re) {
+			reportError(re);
+			recover(input,re);
+		}
+		finally {
+			// do for sure before leaving
+		}
+		dbg.location(42, 18);
+
+		}
+		finally {
+			dbg.exitRule(getGrammarFileName(), "vars");
+			decRuleLevel();
+			if ( getRuleLevel()==0 ) {dbg.terminate();}
+		}
+
+	}
+	// $ANTLR end "vars"
+
+
+
+	// $ANTLR start "decl"
+	// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:44:1: decl : variabs ':' tipo ';' ;
+	public final void decl() throws RecognitionException {
+		try { dbg.enterRule(getGrammarFileName(), "decl");
+		if ( getRuleLevel()==0 ) {dbg.commence();}
+		incRuleLevel();
+		dbg.location(44, 0);
+
+		try {
+			// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:44:6: ( variabs ':' tipo ';' )
+			dbg.enterAlt(1);
+
+			// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:44:8: variabs ':' tipo ';'
+			{
+			dbg.location(44,8);
+			pushFollow(FOLLOW_variabs_in_decl254);
+			variabs();
+			state._fsp--;
+			dbg.location(44,16);
+			match(input,21,FOLLOW_21_in_decl256); dbg.location(44,20);
+			pushFollow(FOLLOW_tipo_in_decl258);
+			tipo();
+			state._fsp--;
+			dbg.location(44,25);
+			match(input,22,FOLLOW_22_in_decl260); 
+			}
+
+		}
+		catch (RecognitionException re) {
+			reportError(re);
+			recover(input,re);
+		}
+		finally {
+			// do for sure before leaving
+		}
+		dbg.location(44, 27);
+
+		}
+		finally {
+			dbg.exitRule(getGrammarFileName(), "decl");
+			decRuleLevel();
+			if ( getRuleLevel()==0 ) {dbg.terminate();}
+		}
+
+	}
+	// $ANTLR end "decl"
+
+
+
+	// $ANTLR start "variabs"
+	// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:46:1: variabs : ID ( ',' ID )* ;
+	public final void variabs() throws RecognitionException {
+		try { dbg.enterRule(getGrammarFileName(), "variabs");
+		if ( getRuleLevel()==0 ) {dbg.commence();}
+		incRuleLevel();
+		dbg.location(46, 0);
+
+		try {
+			// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:46:9: ( ID ( ',' ID )* )
+			dbg.enterAlt(1);
+
+			// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:46:11: ID ( ',' ID )*
+			{
+			dbg.location(46,11);
+			match(input,ID,FOLLOW_ID_in_variabs268); dbg.location(46,14);
+			// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:46:14: ( ',' ID )*
+			try { dbg.enterSubRule(14);
+
+			loop14:
+			while (true) {
+				int alt14=2;
+				try { dbg.enterDecision(14, decisionCanBacktrack[14]);
+
+				int LA14_0 = input.LA(1);
+				if ( (LA14_0==18) ) {
+					alt14=1;
+				}
+
+				} finally {dbg.exitDecision(14);}
+
+				switch (alt14) {
+				case 1 :
+					dbg.enterAlt(1);
+
+					// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:46:15: ',' ID
+					{
+					dbg.location(46,15);
+					match(input,18,FOLLOW_18_in_variabs271); dbg.location(46,19);
+					match(input,ID,FOLLOW_ID_in_variabs273); 
+					}
+					break;
+
+				default :
+					break loop14;
+				}
+			}
+			} finally {dbg.exitSubRule(14);}
+
+			}
+
+		}
+		catch (RecognitionException re) {
+			reportError(re);
+			recover(input,re);
+		}
+		finally {
+			// do for sure before leaving
+		}
+		dbg.location(46, 22);
 
 		}
 		finally {
@@ -1013,65 +1418,21 @@ public class patitoParser extends DebugParser {
 
 
 
-	// $ANTLR start "more"
-	// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:36:1: more : ',' variabs ;
-	public final void more() throws RecognitionException {
-		try { dbg.enterRule(getGrammarFileName(), "more");
-		if ( getRuleLevel()==0 ) {dbg.commence();}
-		incRuleLevel();
-		dbg.location(36, 0);
-
-		try {
-			// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:36:6: ( ',' variabs )
-			dbg.enterAlt(1);
-
-			// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:36:8: ',' variabs
-			{
-			dbg.location(36,8);
-			match(input,18,FOLLOW_18_in_more194); dbg.location(36,12);
-			pushFollow(FOLLOW_variabs_in_more196);
-			variabs();
-			state._fsp--;
-
-			}
-
-		}
-		catch (RecognitionException re) {
-			reportError(re);
-			recover(input,re);
-		}
-		finally {
-			// do for sure before leaving
-		}
-		dbg.location(36, 18);
-
-		}
-		finally {
-			dbg.exitRule(getGrammarFileName(), "more");
-			decRuleLevel();
-			if ( getRuleLevel()==0 ) {dbg.terminate();}
-		}
-
-	}
-	// $ANTLR end "more"
-
-
-
 	// $ANTLR start "varcte"
-	// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:38:1: varcte : ( ID | INT | FLOAT );
+	// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:48:1: varcte : ( ID | INT | FLOAT );
 	public final void varcte() throws RecognitionException {
 		try { dbg.enterRule(getGrammarFileName(), "varcte");
 		if ( getRuleLevel()==0 ) {dbg.commence();}
 		incRuleLevel();
-		dbg.location(38, 0);
+		dbg.location(48, 0);
 
 		try {
-			// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:38:8: ( ID | INT | FLOAT )
+			// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:48:8: ( ID | INT | FLOAT )
 			dbg.enterAlt(1);
 
 			// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:
 			{
-			dbg.location(38,8);
+			dbg.location(48,8);
 			if ( input.LA(1)==FLOAT||(input.LA(1) >= ID && input.LA(1) <= INT) ) {
 				input.consume();
 				state.errorRecovery=false;
@@ -1091,7 +1452,7 @@ public class patitoParser extends DebugParser {
 		finally {
 			// do for sure before leaving
 		}
-		dbg.location(38, 21);
+		dbg.location(48, 21);
 
 		}
 		finally {
@@ -1106,21 +1467,21 @@ public class patitoParser extends DebugParser {
 
 
 	// $ANTLR start "tipo"
-	// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:40:1: tipo : ( 'int' | 'float' );
+	// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:50:1: tipo : ( 'int' | 'float' );
 	public final void tipo() throws RecognitionException {
 		try { dbg.enterRule(getGrammarFileName(), "tipo");
 		if ( getRuleLevel()==0 ) {dbg.commence();}
 		incRuleLevel();
-		dbg.location(40, 0);
+		dbg.location(50, 0);
 
 		try {
-			// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:40:6: ( 'int' | 'float' )
+			// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:50:6: ( 'int' | 'float' )
 			dbg.enterAlt(1);
 
 			// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:
 			{
-			dbg.location(40,6);
-			if ( (input.LA(1) >= 26 && input.LA(1) <= 27) ) {
+			dbg.location(50,6);
+			if ( input.LA(1)==28||input.LA(1)==30 ) {
 				input.consume();
 				state.errorRecovery=false;
 			}
@@ -1139,7 +1500,7 @@ public class patitoParser extends DebugParser {
 		finally {
 			// do for sure before leaving
 		}
-		dbg.location(40, 20);
+		dbg.location(50, 20);
 
 		}
 		finally {
@@ -1154,20 +1515,20 @@ public class patitoParser extends DebugParser {
 
 
 	// $ANTLR start "opsum"
-	// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:42:1: opsum : ( '+' | '-' );
+	// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:52:1: opsum : ( '+' | '-' );
 	public final void opsum() throws RecognitionException {
 		try { dbg.enterRule(getGrammarFileName(), "opsum");
 		if ( getRuleLevel()==0 ) {dbg.commence();}
 		incRuleLevel();
-		dbg.location(42, 0);
+		dbg.location(52, 0);
 
 		try {
-			// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:42:7: ( '+' | '-' )
+			// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:52:7: ( '+' | '-' )
 			dbg.enterAlt(1);
 
 			// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:
 			{
-			dbg.location(42,7);
+			dbg.location(52,7);
 			if ( input.LA(1)==17||input.LA(1)==19 ) {
 				input.consume();
 				state.errorRecovery=false;
@@ -1187,7 +1548,7 @@ public class patitoParser extends DebugParser {
 		finally {
 			// do for sure before leaving
 		}
-		dbg.location(42, 15);
+		dbg.location(52, 15);
 
 		}
 		finally {
@@ -1202,20 +1563,20 @@ public class patitoParser extends DebugParser {
 
 
 	// $ANTLR start "opmul"
-	// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:44:1: opmul : ( '*' | '/' );
+	// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:54:1: opmul : ( '*' | '/' );
 	public final void opmul() throws RecognitionException {
 		try { dbg.enterRule(getGrammarFileName(), "opmul");
 		if ( getRuleLevel()==0 ) {dbg.commence();}
 		incRuleLevel();
-		dbg.location(44, 0);
+		dbg.location(54, 0);
 
 		try {
-			// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:44:7: ( '*' | '/' )
+			// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:54:7: ( '*' | '/' )
 			dbg.enterAlt(1);
 
 			// /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:
 			{
-			dbg.location(44,7);
+			dbg.location(54,7);
 			if ( input.LA(1)==16||input.LA(1)==20 ) {
 				input.consume();
 				state.errorRecovery=false;
@@ -1235,7 +1596,7 @@ public class patitoParser extends DebugParser {
 		finally {
 			// do for sure before leaving
 		}
-		dbg.location(44, 15);
+		dbg.location(54, 15);
 
 		}
 		finally {
@@ -1251,46 +1612,68 @@ public class patitoParser extends DebugParser {
 
 
 
-	public static final BitSet FOLLOW_tipo_in_parse10 = new BitSet(new long[]{0x0000000000000000L});
-	public static final BitSet FOLLOW_EOF_in_parse12 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_28_in_escritura22 = new BitSet(new long[]{0x0000000000004000L});
-	public static final BitSet FOLLOW_14_in_escritura24 = new BitSet(new long[]{0x00000000000A4B40L});
-	public static final BitSet FOLLOW_stmt_in_escritura26 = new BitSet(new long[]{0x0000000000008000L});
-	public static final BitSet FOLLOW_15_in_escritura28 = new BitSet(new long[]{0x0000000000400000L});
-	public static final BitSet FOLLOW_22_in_escritura30 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_strgstmt_in_stmt38 = new BitSet(new long[]{0x0000000000040002L});
-	public static final BitSet FOLLOW_stmt2_in_stmt40 = new BitSet(new long[]{0x0000000000040002L});
-	public static final BitSet FOLLOW_18_in_stmt249 = new BitSet(new long[]{0x00000000000A4B40L});
-	public static final BitSet FOLLOW_stmt_in_stmt251 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_STRING_in_strgstmt58 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_expresion_in_strgstmt62 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_exp_in_expresion71 = new BitSet(new long[]{0x0000000003800000L});
-	public static final BitSet FOLLOW_opexp_in_expresion73 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_25_in_opexp81 = new BitSet(new long[]{0x00000000000A4340L});
-	public static final BitSet FOLLOW_exp_in_opexp83 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_23_in_opexp88 = new BitSet(new long[]{0x00000000000A4340L});
-	public static final BitSet FOLLOW_exp_in_opexp90 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_24_in_opexp95 = new BitSet(new long[]{0x00000000000A4340L});
-	public static final BitSet FOLLOW_exp_in_opexp97 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_termino_in_exp107 = new BitSet(new long[]{0x00000000000A0002L});
-	public static final BitSet FOLLOW_opsum_in_exp110 = new BitSet(new long[]{0x00000000000A4340L});
-	public static final BitSet FOLLOW_exp_in_exp112 = new BitSet(new long[]{0x00000000000A0002L});
-	public static final BitSet FOLLOW_14_in_factor123 = new BitSet(new long[]{0x00000000000A4340L});
-	public static final BitSet FOLLOW_expresion_in_factor125 = new BitSet(new long[]{0x0000000000008000L});
-	public static final BitSet FOLLOW_15_in_factor127 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_opsum_in_factor132 = new BitSet(new long[]{0x0000000000000340L});
-	public static final BitSet FOLLOW_varcte_in_factor135 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_factor_in_termino143 = new BitSet(new long[]{0x0000000000110002L});
-	public static final BitSet FOLLOW_opmul_in_termino146 = new BitSet(new long[]{0x00000000000A4340L});
-	public static final BitSet FOLLOW_termino_in_termino148 = new BitSet(new long[]{0x0000000000110002L});
-	public static final BitSet FOLLOW_29_in_vars158 = new BitSet(new long[]{0x0000000000000100L});
-	public static final BitSet FOLLOW_decl_in_vars160 = new BitSet(new long[]{0x0000000000000102L});
-	public static final BitSet FOLLOW_variabs_in_decl169 = new BitSet(new long[]{0x0000000000200000L});
-	public static final BitSet FOLLOW_21_in_decl171 = new BitSet(new long[]{0x000000000C000000L});
-	public static final BitSet FOLLOW_tipo_in_decl173 = new BitSet(new long[]{0x0000000000400000L});
-	public static final BitSet FOLLOW_22_in_decl175 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_ID_in_variabs183 = new BitSet(new long[]{0x0000000000040002L});
-	public static final BitSet FOLLOW_more_in_variabs185 = new BitSet(new long[]{0x0000000000040002L});
-	public static final BitSet FOLLOW_18_in_more194 = new BitSet(new long[]{0x0000000000000100L});
-	public static final BitSet FOLLOW_variabs_in_more196 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_programa_in_start10 = new BitSet(new long[]{0x0000000000000000L});
+	public static final BitSet FOLLOW_EOF_in_start12 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_32_in_programa19 = new BitSet(new long[]{0x0000000000000100L});
+	public static final BitSet FOLLOW_ID_in_programa21 = new BitSet(new long[]{0x0000000000400000L});
+	public static final BitSet FOLLOW_22_in_programa23 = new BitSet(new long[]{0x0000000600000000L});
+	public static final BitSet FOLLOW_vars_in_programa25 = new BitSet(new long[]{0x0000000400000000L});
+	public static final BitSet FOLLOW_bloque_in_programa28 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_34_in_bloque36 = new BitSet(new long[]{0x00000008A0000100L});
+	public static final BitSet FOLLOW_estatuto_in_bloque38 = new BitSet(new long[]{0x00000008A0000100L});
+	public static final BitSet FOLLOW_35_in_bloque41 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_asignacion_in_estatuto48 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_escritura_in_estatuto53 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_condicion_in_estatuto57 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_29_in_condicion66 = new BitSet(new long[]{0x0000000000004000L});
+	public static final BitSet FOLLOW_14_in_condicion68 = new BitSet(new long[]{0x00000000000A4340L});
+	public static final BitSet FOLLOW_expresion_in_condicion70 = new BitSet(new long[]{0x0000000000008000L});
+	public static final BitSet FOLLOW_15_in_condicion72 = new BitSet(new long[]{0x0000000400000000L});
+	public static final BitSet FOLLOW_bloque_in_condicion74 = new BitSet(new long[]{0x0000000008400000L});
+	public static final BitSet FOLLOW_condelse_in_condicion76 = new BitSet(new long[]{0x0000000000400000L});
+	public static final BitSet FOLLOW_22_in_condicion79 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_27_in_condelse86 = new BitSet(new long[]{0x0000000400000000L});
+	public static final BitSet FOLLOW_bloque_in_condelse88 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_ID_in_asignacion97 = new BitSet(new long[]{0x0000000002000000L});
+	public static final BitSet FOLLOW_25_in_asignacion99 = new BitSet(new long[]{0x00000000000A4340L});
+	public static final BitSet FOLLOW_expresion_in_asignacion101 = new BitSet(new long[]{0x0000000000400000L});
+	public static final BitSet FOLLOW_22_in_asignacion103 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_31_in_escritura111 = new BitSet(new long[]{0x0000000000004000L});
+	public static final BitSet FOLLOW_14_in_escritura113 = new BitSet(new long[]{0x00000000000A4B40L});
+	public static final BitSet FOLLOW_stmt_in_escritura115 = new BitSet(new long[]{0x0000000000008000L});
+	public static final BitSet FOLLOW_15_in_escritura117 = new BitSet(new long[]{0x0000000000400000L});
+	public static final BitSet FOLLOW_22_in_escritura119 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_strgstmt_in_stmt127 = new BitSet(new long[]{0x0000000000040002L});
+	public static final BitSet FOLLOW_18_in_stmt130 = new BitSet(new long[]{0x00000000000A4B40L});
+	public static final BitSet FOLLOW_strgstmt_in_stmt132 = new BitSet(new long[]{0x0000000000040002L});
+	public static final BitSet FOLLOW_STRING_in_strgstmt141 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_expresion_in_strgstmt145 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_exp_in_expresion154 = new BitSet(new long[]{0x0000000005800002L});
+	public static final BitSet FOLLOW_opexp_in_expresion156 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_26_in_opexp165 = new BitSet(new long[]{0x00000000000A4340L});
+	public static final BitSet FOLLOW_exp_in_opexp167 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_23_in_opexp172 = new BitSet(new long[]{0x00000000000A4340L});
+	public static final BitSet FOLLOW_exp_in_opexp174 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_24_in_opexp179 = new BitSet(new long[]{0x00000000000A4340L});
+	public static final BitSet FOLLOW_exp_in_opexp181 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_termino_in_exp191 = new BitSet(new long[]{0x00000000000A0002L});
+	public static final BitSet FOLLOW_opsum_in_exp194 = new BitSet(new long[]{0x00000000000A4340L});
+	public static final BitSet FOLLOW_termino_in_exp196 = new BitSet(new long[]{0x00000000000A0002L});
+	public static final BitSet FOLLOW_14_in_factor207 = new BitSet(new long[]{0x00000000000A4340L});
+	public static final BitSet FOLLOW_expresion_in_factor209 = new BitSet(new long[]{0x0000000000008000L});
+	public static final BitSet FOLLOW_15_in_factor211 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_opsum_in_factor216 = new BitSet(new long[]{0x0000000000000340L});
+	public static final BitSet FOLLOW_varcte_in_factor219 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_factor_in_termino228 = new BitSet(new long[]{0x0000000000110002L});
+	public static final BitSet FOLLOW_opmul_in_termino231 = new BitSet(new long[]{0x00000000000A4340L});
+	public static final BitSet FOLLOW_factor_in_termino233 = new BitSet(new long[]{0x0000000000110002L});
+	public static final BitSet FOLLOW_33_in_vars243 = new BitSet(new long[]{0x0000000000000100L});
+	public static final BitSet FOLLOW_decl_in_vars245 = new BitSet(new long[]{0x0000000000000102L});
+	public static final BitSet FOLLOW_variabs_in_decl254 = new BitSet(new long[]{0x0000000000200000L});
+	public static final BitSet FOLLOW_21_in_decl256 = new BitSet(new long[]{0x0000000050000000L});
+	public static final BitSet FOLLOW_tipo_in_decl258 = new BitSet(new long[]{0x0000000000400000L});
+	public static final BitSet FOLLOW_22_in_decl260 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_ID_in_variabs268 = new BitSet(new long[]{0x0000000000040002L});
+	public static final BitSet FOLLOW_18_in_variabs271 = new BitSet(new long[]{0x0000000000000100L});
+	public static final BitSet FOLLOW_ID_in_variabs273 = new BitSet(new long[]{0x0000000000040002L});
 }

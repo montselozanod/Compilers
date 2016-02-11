@@ -1,7 +1,13 @@
 program hola;
 
-var main: int
+var main: int;
 {
   hello = 50;
-  chabuz = "chab";
+  print(hello, "chab");
+  if(50 < 100)
+  {
+    print("less");
+  }else{
+    print("not less");
+  };
 }

@@ -1,12 +1,8 @@
 grammar patito;
 
-options {
-  language=Python;
-}
+start	:	programa EOF;
 
-parse	:	programa EOF; 
-
-programa:	'program' 'id' ';' vars? bloque;
+programa:	'program' ID ';' vars? bloque;
 
 bloque	:	'{' estatuto* '}';
 
@@ -29,7 +25,7 @@ stmt	:	strgstmt (',' strgstmt)*;
 strgstmt:	STRING | expresion;
 
 expresion
-	: exp opexp;
+	: exp opexp?;
 
 opexp	: '>' exp
 	| '<' exp
