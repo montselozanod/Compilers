@@ -1,4 +1,4 @@
-# $ANTLR 3.5.1 /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g 2016-02-10 20:15:09
+# $ANTLR 3.5.1 /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g 2016-02-10 22:43:01
 
 import sys
 from antlr3 import *
@@ -33,7 +33,6 @@ T__32=32
 T__33=33
 T__34=34
 T__35=35
-T__36=36
 ESC_SEQ=4
 EXPONENT=5
 FLOAT=6
@@ -424,10 +423,10 @@ class patitoLexer(Lexer):
             _type = T__29
             _channel = DEFAULT_CHANNEL
 
-            # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:22:7: ( 'id' )
-            # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:22:9: 'id'
+            # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:22:7: ( 'if' )
+            # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:22:9: 'if'
             pass 
-            self.match("id")
+            self.match("if")
 
 
 
@@ -447,10 +446,10 @@ class patitoLexer(Lexer):
             _type = T__30
             _channel = DEFAULT_CHANNEL
 
-            # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:23:7: ( 'if' )
-            # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:23:9: 'if'
+            # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:23:7: ( 'int' )
+            # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:23:9: 'int'
             pass 
-            self.match("if")
+            self.match("int")
 
 
 
@@ -470,10 +469,10 @@ class patitoLexer(Lexer):
             _type = T__31
             _channel = DEFAULT_CHANNEL
 
-            # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:24:7: ( 'int' )
-            # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:24:9: 'int'
+            # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:24:7: ( 'print' )
+            # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:24:9: 'print'
             pass 
-            self.match("int")
+            self.match("print")
 
 
 
@@ -493,10 +492,10 @@ class patitoLexer(Lexer):
             _type = T__32
             _channel = DEFAULT_CHANNEL
 
-            # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:25:7: ( 'print' )
-            # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:25:9: 'print'
+            # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:25:7: ( 'program' )
+            # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:25:9: 'program'
             pass 
-            self.match("print")
+            self.match("program")
 
 
 
@@ -516,10 +515,10 @@ class patitoLexer(Lexer):
             _type = T__33
             _channel = DEFAULT_CHANNEL
 
-            # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:26:7: ( 'program' )
-            # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:26:9: 'program'
+            # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:26:7: ( 'var' )
+            # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:26:9: 'var'
             pass 
-            self.match("program")
+            self.match("var")
 
 
 
@@ -539,11 +538,10 @@ class patitoLexer(Lexer):
             _type = T__34
             _channel = DEFAULT_CHANNEL
 
-            # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:27:7: ( 'var' )
-            # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:27:9: 'var'
+            # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:27:7: ( '{' )
+            # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:27:9: '{'
             pass 
-            self.match("var")
-
+            self.match(123)
 
 
 
@@ -562,10 +560,10 @@ class patitoLexer(Lexer):
             _type = T__35
             _channel = DEFAULT_CHANNEL
 
-            # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:28:7: ( '{' )
-            # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:28:9: '{'
+            # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:28:7: ( '}' )
+            # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:28:9: '}'
             pass 
-            self.match(123)
+            self.match(125)
 
 
 
@@ -578,36 +576,14 @@ class patitoLexer(Lexer):
 
 
 
-    # $ANTLR start "T__36"
-    def mT__36(self, ):
-        try:
-            _type = T__36
-            _channel = DEFAULT_CHANNEL
-
-            # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:29:7: ( '}' )
-            # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:29:9: '}'
-            pass 
-            self.match(125)
-
-
-
-            self._state.type = _type
-            self._state.channel = _channel
-        finally:
-            pass
-
-    # $ANTLR end "T__36"
-
-
-
     # $ANTLR start "ID"
     def mID(self, ):
         try:
             _type = ID
             _channel = DEFAULT_CHANNEL
 
-            # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:61:5: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )* )
-            # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:61:7: ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
+            # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:60:5: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )* )
+            # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:60:7: ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
             pass 
             if (65 <= self.input.LA(1) <= 90) or self.input.LA(1) == 95 or (97 <= self.input.LA(1) <= 122):
                 self.input.consume()
@@ -618,7 +594,7 @@ class patitoLexer(Lexer):
 
 
 
-            # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:61:31: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
+            # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:60:31: ( 'a' .. 'z' | 'A' .. 'Z' | '0' .. '9' | '_' )*
             while True: #loop1
                 alt1 = 2
                 LA1_0 = self.input.LA(1)
@@ -661,10 +637,10 @@ class patitoLexer(Lexer):
             _type = INT
             _channel = DEFAULT_CHANNEL
 
-            # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:64:5: ( ( '0' .. '9' )+ )
-            # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:64:7: ( '0' .. '9' )+
+            # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:63:5: ( ( '0' .. '9' )+ )
+            # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:63:7: ( '0' .. '9' )+
             pass 
-            # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:64:7: ( '0' .. '9' )+
+            # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:63:7: ( '0' .. '9' )+
             cnt2 = 0
             while True: #loop2
                 alt2 = 2
@@ -714,13 +690,13 @@ class patitoLexer(Lexer):
             _type = FLOAT
             _channel = DEFAULT_CHANNEL
 
-            # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:68:5: ( ( '0' .. '9' )+ '.' ( '0' .. '9' )* ( EXPONENT )? | '.' ( '0' .. '9' )+ ( EXPONENT )? | ( '0' .. '9' )+ EXPONENT )
+            # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:67:5: ( ( '0' .. '9' )+ '.' ( '0' .. '9' )* ( EXPONENT )? | '.' ( '0' .. '9' )+ ( EXPONENT )? | ( '0' .. '9' )+ EXPONENT )
             alt9 = 3
             alt9 = self.dfa9.predict(self.input)
             if alt9 == 1:
-                # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:68:9: ( '0' .. '9' )+ '.' ( '0' .. '9' )* ( EXPONENT )?
+                # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:67:9: ( '0' .. '9' )+ '.' ( '0' .. '9' )* ( EXPONENT )?
                 pass 
-                # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:68:9: ( '0' .. '9' )+
+                # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:67:9: ( '0' .. '9' )+
                 cnt3 = 0
                 while True: #loop3
                     alt3 = 2
@@ -755,7 +731,7 @@ class patitoLexer(Lexer):
 
                 self.match(46)
 
-                # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:68:25: ( '0' .. '9' )*
+                # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:67:25: ( '0' .. '9' )*
                 while True: #loop4
                     alt4 = 2
                     LA4_0 = self.input.LA(1)
@@ -781,14 +757,14 @@ class patitoLexer(Lexer):
                         break #loop4
 
 
-                # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:68:37: ( EXPONENT )?
+                # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:67:37: ( EXPONENT )?
                 alt5 = 2
                 LA5_0 = self.input.LA(1)
 
                 if (LA5_0 == 69 or LA5_0 == 101) :
                     alt5 = 1
                 if alt5 == 1:
-                    # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:68:37: EXPONENT
+                    # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:67:37: EXPONENT
                     pass 
                     self.mEXPONENT()
 
@@ -798,11 +774,11 @@ class patitoLexer(Lexer):
 
 
             elif alt9 == 2:
-                # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:69:9: '.' ( '0' .. '9' )+ ( EXPONENT )?
+                # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:68:9: '.' ( '0' .. '9' )+ ( EXPONENT )?
                 pass 
                 self.match(46)
 
-                # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:69:13: ( '0' .. '9' )+
+                # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:68:13: ( '0' .. '9' )+
                 cnt6 = 0
                 while True: #loop6
                     alt6 = 2
@@ -835,14 +811,14 @@ class patitoLexer(Lexer):
                     cnt6 += 1
 
 
-                # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:69:25: ( EXPONENT )?
+                # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:68:25: ( EXPONENT )?
                 alt7 = 2
                 LA7_0 = self.input.LA(1)
 
                 if (LA7_0 == 69 or LA7_0 == 101) :
                     alt7 = 1
                 if alt7 == 1:
-                    # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:69:25: EXPONENT
+                    # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:68:25: EXPONENT
                     pass 
                     self.mEXPONENT()
 
@@ -852,9 +828,9 @@ class patitoLexer(Lexer):
 
 
             elif alt9 == 3:
-                # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:70:9: ( '0' .. '9' )+ EXPONENT
+                # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:69:9: ( '0' .. '9' )+ EXPONENT
                 pass 
-                # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:70:9: ( '0' .. '9' )+
+                # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:69:9: ( '0' .. '9' )+
                 cnt8 = 0
                 while True: #loop8
                     alt8 = 2
@@ -906,8 +882,8 @@ class patitoLexer(Lexer):
             _type = WS
             _channel = DEFAULT_CHANNEL
 
-            # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:73:5: ( ( ' ' | '\\t' | '\\r' | '\\n' ) )
-            # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:73:9: ( ' ' | '\\t' | '\\r' | '\\n' )
+            # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:72:5: ( ( ' ' | '\\t' | '\\r' | '\\n' ) )
+            # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:72:9: ( ' ' | '\\t' | '\\r' | '\\n' )
             pass 
             if (9 <= self.input.LA(1) <= 10) or self.input.LA(1) == 13 or self.input.LA(1) == 32:
                 self.input.consume()
@@ -940,12 +916,12 @@ class patitoLexer(Lexer):
             _type = STRING
             _channel = DEFAULT_CHANNEL
 
-            # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:81:5: ( '\"' ( ESC_SEQ |~ ( '\\\\' | '\"' ) )* '\"' )
-            # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:81:8: '\"' ( ESC_SEQ |~ ( '\\\\' | '\"' ) )* '\"'
+            # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:80:5: ( '\"' ( ESC_SEQ |~ ( '\\\\' | '\"' ) )* '\"' )
+            # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:80:8: '\"' ( ESC_SEQ |~ ( '\\\\' | '\"' ) )* '\"'
             pass 
             self.match(34)
 
-            # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:81:12: ( ESC_SEQ |~ ( '\\\\' | '\"' ) )*
+            # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:80:12: ( ESC_SEQ |~ ( '\\\\' | '\"' ) )*
             while True: #loop10
                 alt10 = 3
                 LA10_0 = self.input.LA(1)
@@ -957,14 +933,14 @@ class patitoLexer(Lexer):
 
 
                 if alt10 == 1:
-                    # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:81:14: ESC_SEQ
+                    # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:80:14: ESC_SEQ
                     pass 
                     self.mESC_SEQ()
 
 
 
                 elif alt10 == 2:
-                    # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:81:24: ~ ( '\\\\' | '\"' )
+                    # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:80:24: ~ ( '\\\\' | '\"' )
                     pass 
                     if (0 <= self.input.LA(1) <= 33) or (35 <= self.input.LA(1) <= 91) or (93 <= self.input.LA(1) <= 65535):
                         self.input.consume()
@@ -996,8 +972,8 @@ class patitoLexer(Lexer):
     # $ANTLR start "EXPONENT"
     def mEXPONENT(self, ):
         try:
-            # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:86:10: ( ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+ )
-            # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:86:12: ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+
+            # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:85:10: ( ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+ )
+            # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:85:12: ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+
             pass 
             if self.input.LA(1) == 69 or self.input.LA(1) == 101:
                 self.input.consume()
@@ -1008,7 +984,7 @@ class patitoLexer(Lexer):
 
 
 
-            # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:86:22: ( '+' | '-' )?
+            # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:85:22: ( '+' | '-' )?
             alt11 = 2
             LA11_0 = self.input.LA(1)
 
@@ -1029,7 +1005,7 @@ class patitoLexer(Lexer):
 
 
 
-            # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:86:33: ( '0' .. '9' )+
+            # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:85:33: ( '0' .. '9' )+
             cnt12 = 0
             while True: #loop12
                 alt12 = 2
@@ -1075,7 +1051,7 @@ class patitoLexer(Lexer):
     # $ANTLR start "HEX_DIGIT"
     def mHEX_DIGIT(self, ):
         try:
-            # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:89:11: ( ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' ) )
+            # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:88:11: ( ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' ) )
             # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:
             pass 
             if (48 <= self.input.LA(1) <= 57) or (65 <= self.input.LA(1) <= 70) or (97 <= self.input.LA(1) <= 102):
@@ -1100,7 +1076,7 @@ class patitoLexer(Lexer):
     # $ANTLR start "ESC_SEQ"
     def mESC_SEQ(self, ):
         try:
-            # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:93:5: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\\\"' | '\\'' | '\\\\' ) | UNICODE_ESC | OCTAL_ESC )
+            # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:92:5: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\\\"' | '\\'' | '\\\\' ) | UNICODE_ESC | OCTAL_ESC )
             alt13 = 3
             LA13_0 = self.input.LA(1)
 
@@ -1125,7 +1101,7 @@ class patitoLexer(Lexer):
 
 
             if alt13 == 1:
-                # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:93:9: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\\\"' | '\\'' | '\\\\' )
+                # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:92:9: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\\\"' | '\\'' | '\\\\' )
                 pass 
                 self.match(92)
 
@@ -1140,14 +1116,14 @@ class patitoLexer(Lexer):
 
 
             elif alt13 == 2:
-                # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:94:9: UNICODE_ESC
+                # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:93:9: UNICODE_ESC
                 pass 
                 self.mUNICODE_ESC()
 
 
 
             elif alt13 == 3:
-                # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:95:9: OCTAL_ESC
+                # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:94:9: OCTAL_ESC
                 pass 
                 self.mOCTAL_ESC()
 
@@ -1164,7 +1140,7 @@ class patitoLexer(Lexer):
     # $ANTLR start "OCTAL_ESC"
     def mOCTAL_ESC(self, ):
         try:
-            # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:100:5: ( '\\\\' ( '0' .. '3' ) ( '0' .. '7' ) ( '0' .. '7' ) | '\\\\' ( '0' .. '7' ) ( '0' .. '7' ) | '\\\\' ( '0' .. '7' ) )
+            # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:99:5: ( '\\\\' ( '0' .. '3' ) ( '0' .. '7' ) ( '0' .. '7' ) | '\\\\' ( '0' .. '7' ) ( '0' .. '7' ) | '\\\\' ( '0' .. '7' ) )
             alt14 = 3
             LA14_0 = self.input.LA(1)
 
@@ -1206,7 +1182,7 @@ class patitoLexer(Lexer):
 
 
             if alt14 == 1:
-                # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:100:9: '\\\\' ( '0' .. '3' ) ( '0' .. '7' ) ( '0' .. '7' )
+                # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:99:9: '\\\\' ( '0' .. '3' ) ( '0' .. '7' ) ( '0' .. '7' )
                 pass 
                 self.match(92)
 
@@ -1239,7 +1215,7 @@ class patitoLexer(Lexer):
 
 
             elif alt14 == 2:
-                # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:101:9: '\\\\' ( '0' .. '7' ) ( '0' .. '7' )
+                # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:100:9: '\\\\' ( '0' .. '7' ) ( '0' .. '7' )
                 pass 
                 self.match(92)
 
@@ -1263,7 +1239,7 @@ class patitoLexer(Lexer):
 
 
             elif alt14 == 3:
-                # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:102:9: '\\\\' ( '0' .. '7' )
+                # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:101:9: '\\\\' ( '0' .. '7' )
                 pass 
                 self.match(92)
 
@@ -1288,8 +1264,8 @@ class patitoLexer(Lexer):
     # $ANTLR start "UNICODE_ESC"
     def mUNICODE_ESC(self, ):
         try:
-            # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:107:5: ( '\\\\' 'u' HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT )
-            # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:107:9: '\\\\' 'u' HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT
+            # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:106:5: ( '\\\\' 'u' HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT )
+            # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:106:9: '\\\\' 'u' HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT
             pass 
             self.match(92)
 
@@ -1318,8 +1294,8 @@ class patitoLexer(Lexer):
 
 
     def mTokens(self):
-        # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:1:8: ( T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | ID | INT | FLOAT | WS | STRING )
-        alt15 = 28
+        # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:1:8: ( T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | ID | INT | FLOAT | WS | STRING )
+        alt15 = 27
         alt15 = self.dfa15.predict(self.input)
         if alt15 == 1:
             # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:1:10: T__14
@@ -1476,42 +1452,35 @@ class patitoLexer(Lexer):
 
 
         elif alt15 == 23:
-            # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:1:142: T__36
-            pass 
-            self.mT__36()
-
-
-
-        elif alt15 == 24:
-            # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:1:148: ID
+            # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:1:142: ID
             pass 
             self.mID()
 
 
 
-        elif alt15 == 25:
-            # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:1:151: INT
+        elif alt15 == 24:
+            # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:1:145: INT
             pass 
             self.mINT()
 
 
 
-        elif alt15 == 26:
-            # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:1:155: FLOAT
+        elif alt15 == 25:
+            # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:1:149: FLOAT
             pass 
             self.mFLOAT()
 
 
 
-        elif alt15 == 27:
-            # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:1:161: WS
+        elif alt15 == 26:
+            # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:1:155: WS
             pass 
             self.mWS()
 
 
 
-        elif alt15 == 28:
-            # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:1:164: STRING
+        elif alt15 == 27:
+            # /Users/montselozanod/Documents/Tec/Compilers/Compilers/hw2/patito.g:1:158: STRING
             pass 
             self.mSTRING()
 
@@ -1566,38 +1535,38 @@ class patitoLexer(Lexer):
     # lookup tables for DFA #15
 
     DFA15_eot = DFA.unpack(
-        u"\12\uffff\1\32\2\uffff\5\24\3\uffff\1\42\5\uffff\2\24\1\45\1\46"
-        u"\3\24\1\uffff\2\24\2\uffff\1\55\2\24\1\60\1\61\1\24\1\uffff\2\24"
-        u"\2\uffff\1\65\1\66\1\24\2\uffff\1\24\1\71\1\uffff"
+        u"\12\uffff\1\32\2\uffff\5\24\3\uffff\1\41\5\uffff\2\24\1\44\3\24"
+        u"\1\uffff\2\24\1\uffff\1\53\2\24\1\56\1\57\1\24\1\uffff\2\24\2\uffff"
+        u"\1\63\1\64\1\24\2\uffff\1\24\1\67\1\uffff"
         )
 
     DFA15_eof = DFA.unpack(
-        u"\72\uffff"
+        u"\70\uffff"
         )
 
     DFA15_min = DFA.unpack(
-        u"\1\11\11\uffff\1\76\2\uffff\2\154\1\144\1\162\1\141\3\uffff\1\56"
-        u"\5\uffff\1\163\1\157\2\60\1\164\1\151\1\162\1\uffff\1\145\1\141"
-        u"\2\uffff\1\60\1\156\1\147\2\60\1\164\1\uffff\1\164\1\162\2\uffff"
+        u"\1\11\11\uffff\1\76\2\uffff\2\154\1\146\1\162\1\141\3\uffff\1\56"
+        u"\5\uffff\1\163\1\157\1\60\1\164\1\151\1\162\1\uffff\1\145\1\141"
+        u"\1\uffff\1\60\1\156\1\147\2\60\1\164\1\uffff\1\164\1\162\2\uffff"
         u"\2\60\1\141\2\uffff\1\155\1\60\1\uffff"
         )
 
     DFA15_max = DFA.unpack(
         u"\1\175\11\uffff\1\76\2\uffff\2\154\1\156\1\162\1\141\3\uffff\1"
-        u"\145\5\uffff\1\163\1\157\2\172\1\164\1\157\1\162\1\uffff\1\145"
-        u"\1\141\2\uffff\1\172\1\156\1\147\2\172\1\164\1\uffff\1\164\1\162"
+        u"\145\5\uffff\1\163\1\157\1\172\1\164\1\157\1\162\1\uffff\1\145"
+        u"\1\141\1\uffff\1\172\1\156\1\147\2\172\1\164\1\uffff\1\164\1\162"
         u"\2\uffff\2\172\1\141\2\uffff\1\155\1\172\1\uffff"
         )
 
     DFA15_accept = DFA.unpack(
         u"\1\uffff\1\1\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11\1\uffff\1\14\1\15"
-        u"\5\uffff\1\26\1\27\1\30\1\uffff\1\32\1\33\1\34\1\13\1\12\7\uffff"
-        u"\1\31\2\uffff\1\20\1\21\6\uffff\1\22\2\uffff\1\25\1\16\3\uffff"
-        u"\1\17\1\23\2\uffff\1\24"
+        u"\5\uffff\1\25\1\26\1\27\1\uffff\1\31\1\32\1\33\1\13\1\12\6\uffff"
+        u"\1\30\2\uffff\1\20\6\uffff\1\21\2\uffff\1\24\1\16\3\uffff\1\17"
+        u"\1\22\2\uffff\1\23"
         )
 
     DFA15_special = DFA.unpack(
-        u"\72\uffff"
+        u"\70\uffff"
         )
 
 
@@ -1620,9 +1589,9 @@ class patitoLexer(Lexer):
         DFA.unpack(u""),
         DFA.unpack(u"\1\33"),
         DFA.unpack(u"\1\34"),
-        DFA.unpack(u"\1\35\1\uffff\1\36\7\uffff\1\37"),
+        DFA.unpack(u"\1\35\7\uffff\1\36"),
+        DFA.unpack(u"\1\37"),
         DFA.unpack(u"\1\40"),
-        DFA.unpack(u"\1\41"),
         DFA.unpack(u""),
         DFA.unpack(u""),
         DFA.unpack(u""),
@@ -1632,35 +1601,33 @@ class patitoLexer(Lexer):
         DFA.unpack(u""),
         DFA.unpack(u""),
         DFA.unpack(u""),
+        DFA.unpack(u"\1\42"),
         DFA.unpack(u"\1\43"),
-        DFA.unpack(u"\1\44"),
         DFA.unpack(u"\12\24\7\uffff\32\24\4\uffff\1\24\1\uffff\32\24"),
-        DFA.unpack(u"\12\24\7\uffff\32\24\4\uffff\1\24\1\uffff\32\24"),
-        DFA.unpack(u"\1\47"),
-        DFA.unpack(u"\1\50\5\uffff\1\51"),
+        DFA.unpack(u"\1\45"),
+        DFA.unpack(u"\1\46\5\uffff\1\47"),
+        DFA.unpack(u"\1\50"),
+        DFA.unpack(u""),
+        DFA.unpack(u"\1\51"),
         DFA.unpack(u"\1\52"),
         DFA.unpack(u""),
-        DFA.unpack(u"\1\53"),
+        DFA.unpack(u"\12\24\7\uffff\32\24\4\uffff\1\24\1\uffff\32\24"),
         DFA.unpack(u"\1\54"),
+        DFA.unpack(u"\1\55"),
+        DFA.unpack(u"\12\24\7\uffff\32\24\4\uffff\1\24\1\uffff\32\24"),
+        DFA.unpack(u"\12\24\7\uffff\32\24\4\uffff\1\24\1\uffff\32\24"),
+        DFA.unpack(u"\1\60"),
         DFA.unpack(u""),
-        DFA.unpack(u""),
-        DFA.unpack(u"\12\24\7\uffff\32\24\4\uffff\1\24\1\uffff\32\24"),
-        DFA.unpack(u"\1\56"),
-        DFA.unpack(u"\1\57"),
-        DFA.unpack(u"\12\24\7\uffff\32\24\4\uffff\1\24\1\uffff\32\24"),
-        DFA.unpack(u"\12\24\7\uffff\32\24\4\uffff\1\24\1\uffff\32\24"),
+        DFA.unpack(u"\1\61"),
         DFA.unpack(u"\1\62"),
         DFA.unpack(u""),
-        DFA.unpack(u"\1\63"),
-        DFA.unpack(u"\1\64"),
-        DFA.unpack(u""),
         DFA.unpack(u""),
         DFA.unpack(u"\12\24\7\uffff\32\24\4\uffff\1\24\1\uffff\32\24"),
         DFA.unpack(u"\12\24\7\uffff\32\24\4\uffff\1\24\1\uffff\32\24"),
-        DFA.unpack(u"\1\67"),
+        DFA.unpack(u"\1\65"),
         DFA.unpack(u""),
         DFA.unpack(u""),
-        DFA.unpack(u"\1\70"),
+        DFA.unpack(u"\1\66"),
         DFA.unpack(u"\12\24\7\uffff\32\24\4\uffff\1\24\1\uffff\32\24"),
         DFA.unpack(u"")
     ]
