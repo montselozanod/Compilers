@@ -36,7 +36,7 @@ void yyerror(const char *s);
 //grammar
 
 Programa:
-  PROGRAM IDENTIFIER ';' Programa2 {cout<<"Termino parsing de archivo"<<endl;}
+  PROGRAM IDENTIFIER ';' Programa2 { cout<<"Termino parsing de archivo"<<endl;}
   ;
 
 Programa2:
@@ -45,21 +45,11 @@ Programa2:
   ;
 
 Bloque:
-  '{' Es '}'
-  ;
-
-Es:
-  Estatuto
-  | Es Estatuto
+  '{' Estatuto* '}'
   ;
 
 Vars:
-  VAR Dec
-  ;
-
-Dec:
-  Def
-  | Dec Def
+  VAR Def+
   ;
 
 Def:
@@ -67,8 +57,7 @@ Def:
   ;
 
 Ident:
-  IDENTIFIER
-  | Ident ',' IDENTIFIER
+  IDENTIFIER (',' IDENTIFIER)*
   ;
 
 Estatuto:
